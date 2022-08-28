@@ -11,11 +11,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
     }
 
+    @IBOutlet var questionLable:UILabel!
+    @IBOutlet var answerLable:UILabel!
 
 }
 
