@@ -16,37 +16,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcU-jw-FUe">
-                                <rect key="frame" x="194.5" y="195" width="25" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcU-jw-FUe">
+                                <rect key="frame" x="194.5" y="195" width="25" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrO-xO-ZkG">
-                                <rect key="frame" x="119" y="224" width="176" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrO-xO-ZkG">
+                                <rect key="frame" x="149" y="224" width="116" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next Question"/>
+                                <connections>
+                                    <action selector="showNextQuestWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AD5-lv-wha"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpX-E1-IcJ">
-                                <rect key="frame" x="153" y="416" width="107" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpX-E1-IcJ">
+                                <rect key="frame" x="194.5" y="397" width="25" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGE-EF-SK7">
-                                <rect key="frame" x="119" y="462" width="176" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGE-EF-SK7">
+                                <rect key="frame" x="151.5" y="443" width="111" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Show Answer"/>
+                                <connections>
+                                    <action selector="showAnswerWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q0u-37-E5X"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="66C-V1-gj0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QGE-EF-SK7" firstAttribute="top" secondItem="cpX-E1-IcJ" secondAttribute="bottom" constant="25" id="NKJ-jp-bAy"/>
-                            <constraint firstItem="CrO-xO-ZkG" firstAttribute="top" secondItem="FcU-jw-FUe" secondAttribute="bottom" constant="8" symbolic="YES" id="Y1Z-Ay-cO7"/>
-                            <constraint firstItem="FcU-jw-FUe" firstAttribute="top" secondItem="66C-V1-gj0" secondAttribute="top" constant="151" id="rQ2-YF-9iQ"/>
-                            <constraint firstItem="cpX-E1-IcJ" firstAttribute="top" secondItem="CrO-xO-ZkG" secondAttribute="bottom" constant="161" id="rSo-5v-0t2"/>
-                            <constraint firstItem="FcU-jw-FUe" firstAttribute="centerX" secondItem="qNW-2w-Swx" secondAttribute="centerX" id="vg8-Cu-GA7"/>
+                            <constraint firstItem="FcU-jw-FUe" firstAttribute="centerX" secondItem="qNW-2w-Swx" secondAttribute="centerX" id="CdL-LN-Vzv"/>
+                            <constraint firstItem="QGE-EF-SK7" firstAttribute="top" secondItem="CrO-xO-ZkG" secondAttribute="bottom" constant="188" id="Dxu-eO-Sh6"/>
+                            <constraint firstItem="cpX-E1-IcJ" firstAttribute="centerX" secondItem="qNW-2w-Swx" secondAttribute="centerX" id="H9F-Fj-a5D"/>
+                            <constraint firstItem="FcU-jw-FUe" firstAttribute="top" secondItem="66C-V1-gj0" secondAttribute="top" constant="151" id="OLr-Jk-DfX"/>
+                            <constraint firstItem="cpX-E1-IcJ" firstAttribute="top" secondItem="CrO-xO-ZkG" secondAttribute="bottom" constant="142" id="Pqz-kQ-ec0"/>
+                            <constraint firstItem="CrO-xO-ZkG" firstAttribute="top" secondItem="FcU-jw-FUe" secondAttribute="bottom" constant="8.5" id="Xh8-cf-bBf"/>
+                            <constraint firstItem="QGE-EF-SK7" firstAttribute="centerX" secondItem="qNW-2w-Swx" secondAttribute="centerX" id="gNV-m7-jtg"/>
+                            <constraint firstItem="FcU-jw-FUe" firstAttribute="centerX" secondItem="qNW-2w-Swx" secondAttribute="centerX" id="nk2-GW-pJh"/>
+                            <constraint firstItem="FcU-jw-FUe" firstAttribute="top" secondItem="66C-V1-gj0" secondAttribute="top" constant="151" id="sXV-46-GYd"/>
+                            <constraint firstItem="CrO-xO-ZkG" firstAttribute="centerX" secondItem="qNW-2w-Swx" secondAttribute="centerX" id="tT9-fv-p74"/>
                         </constraints>
                     </view>
                     <connections>
