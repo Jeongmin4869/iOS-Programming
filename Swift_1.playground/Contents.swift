@@ -87,5 +87,20 @@ optionalV2 = optionalV1          //10.0
 optionalV2 = nonoptionalV1       //20.0
 nonoptionalV2 = optionalV1       //문법적 에러
 nonoptionalV2 = nonoptionalV1    //20.0
+//강제언랩핑
+//옵셔널 변수에 ! 을 붙이는 것
+//running time 에러 발생
+var optionalV1: Float? = 10.0
+var nonoptionalV1: Float = 20.0
+var nonoptionalV2: Float
+nonoptionalV2 = optionalV1!       //10.0
+//
+var optionalV1: Float?
+var nonoptionalV1: Float = 20.0
+var nonoptionalV2: Float
+nonoptionalV2 = optionalV1!       //error
+//강제언래핑 예시
+
+
 
 
