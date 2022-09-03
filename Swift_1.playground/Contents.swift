@@ -100,7 +100,31 @@ var nonoptionalV1: Float = 20.0
 var nonoptionalV2: Float
 nonoptionalV2 = optionalV1!       //error
 //강제언래핑 예시
-
-
-
-
+var reading1: Float? = 9.8        // 9.8
+var reading2: Float? = 9.2        // 9.2
+var reading3: Float? = 9.7        // 9.7
+let avgReading = (reading1 + reading2 + reading3)/3    // error because of unwrapping
+                                                       // +연산자는 기본적으로 operand가 nil 이 될 수 없기 때문에 에러발생
+let avgReading = (reading1! + reading2! + reading3!)/3 // OK
+//강제언래핑 예시2
+var reading1: Float? = 9.8        // 9.8
+var reading2: Float? = 9.2        // 9.2
+var reading3: Float?              // nil
+let avgReading = (reading1 + reading2 + reading3)/3    // error because of unwrapping
+let avgReading = (reading1! + reading2! + reading3!)/3 // error because reading3 is nil
+//옵셔널 바인딩
+//- 강제 언래핑의 문제점을 해결
+//- if문을 사용하여 nil이 아닌 경우에만 옵셔널 변수 사용
+if let r1 = reading1, r2 = reading2, r3 = reading3{
+    let avgReading = (r1 + r2 + r3)/3
+}
+else{
+    let errorString = "Instrument reported a rading that was nil"
+}
+//딕셔너리에서 서브스크립팅하기.
+let nameByParkingSpace = [13:"Alice", 27:"Bob"]
+let space13Assignee: String? = nameByParkingSpace[13]   // Alice
+let space42Assignee: String? = nameByParkingSpace[42]   // nil
+if let space27Assignee = nameByParkingSpace[27]{
+    print("Key 13 is assigne in the dictionary")
+}
