@@ -128,3 +128,27 @@ let space42Assignee: String? = nameByParkingSpace[42]   // nil
 if let space27Assignee = nameByParkingSpace[27]{
     print("Key 13 is assigne in the dictionary")
 }
+
+//루프
+//재어문들
+//- if-else, while, for, for-in, repeat-while, switch등이 있으나 다른 언어와 차이가 있다.
+//- 대표적인 차이는 괄호를 사용하지 않아도 된다는 점이다.
+for var i=0; i<countingUp.count; i=i+1 {
+    let string = countingUp[i]
+    //string
+}
+//
+let range = 0..< countingUp.count
+for i in range {
+    let string = countingUp[i]
+    //string
+}
+//
+for string in countingUp{
+    //string
+}
+//
+for (i, string) in countingUp.enumerated(){
+    //(0, "one"), (1,"two")
+    //enumerated()는 튜플을 리턴하는 함수이다
+}
