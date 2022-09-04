@@ -148,7 +148,69 @@ for string in countingUp{
     //string
 }
 //
-for (i, string) in countingUp.enumerated(){
-    //(0, "one"), (1,"two")
+for (index, number) in countingUp.enumerated(){
+    //(0, "one"), (1,"two")  형식으로 리턴
     //enumerated()는 튜플을 리턴하는 함수이다
+    //(n, x)로 이루어진 쌍을 리턴 (튜플 형태로 리턴)
 }
+
+//문자열 삽입
+//뮨저열에 변수값 삽입 : printf("%s %d", name, age)
+//- : "\(name) \(age)"
+let nameByParkingSpcae[13:"Alice", 27:"Bob"]
+for(space, name) in nameByParkingSpcae{
+    let permit = "Space \(space): \(name)"
+    
+}
+
+//열거형과 switch
+//열거형
+//- 열거형은 값들의 집합으로 이루어진 타입
+enum PieType{
+    case Apple
+    case Cherry
+    case pecan
+}
+let favoritePie = PieType.Apple
+//switch
+//- 모든 경우를 다 포함하여하 한다.
+//- 반드시 매치되는 경우만 실행한다. => C와는 다른 점
+let name:String
+switch favoritePie{
+    case .Apple:
+        name = "Apple"
+    case .Cherry:
+        name = "Cherry"
+    case.Pecan:
+        name = "Pecan"
+}
+//
+let osxVersion: Int = ...
+switch osxVersion{
+case 0...8:
+    print("A big Cat")
+    //break쓰지 않아도 자동으로 break된다
+case 9:
+    print("Mavericks")
+    fallthrough // 이 case를 마치고 switch 구문을 탈출하지 않음. 아래 case로 계속 진행
+case 10:
+    print("Vosemite")
+default:
+}
+//열거형과 원시값
+//- 선언 시점에서 지정한 원시값은 변환 불가
+//- 대부분 정수이나 문자열 실수등도 가능
+//- 정수일 때 값을 명시적으로 주지 않으면 자동 증가
+enum PieType{
+    case Apple = 0  // 0이 원시값(raw value)
+    case Cherry     // 자동적으로 1
+    case pecan      // 자동적으로 2
+    case Grape = 100
+    case Berry      // 자동적으로 101
+}
+if let pieType = PieType(RawValue: 13) {
+    // raw값(원시값)이 13인것이 있을 경우
+}
+
+//애플의  switch문서 참고
+//http://developer.apple.com/swift
