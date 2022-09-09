@@ -7,46 +7,45 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Conversion View Controlller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConversionViewControlller" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="maJ-sJ-Mxf">
-                                <rect key="frame" x="82" y="52" width="250" height="93.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="maJ-sJ-Mxf">
+                                <rect key="frame" x="82" y="52" width="250" height="85.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="GQS-xS-qR3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="fahrenheitEditingChangedWithTextField:" destination="BYZ-38-t0r" eventType="editingChanged" id="c6a-1d-HbT"/>
+                                </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjm-fR-fwJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjm-fR-fwJ">
                                 <rect key="frame" x="59.5" y="144" width="295" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRu-kz-hVA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRu-kz-hVA">
                                 <rect key="frame" x="150" y="195" width="114" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-IZ-dwk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-IZ-dwk">
                                 <rect key="frame" x="148.5" y="246" width="117" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mye-XU-LnL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mye-XU-LnL">
                                 <rect key="frame" x="84" y="338" width="246" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -55,10 +54,24 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Yjm-fR-fwJ" firstAttribute="top" secondItem="maJ-sJ-Mxf" secondAttribute="bottom" constant="6.5" id="2bE-WA-JRj"/>
+                            <constraint firstItem="Mye-XU-LnL" firstAttribute="top" secondItem="tf2-IZ-dwk" secondAttribute="bottom" constant="8" symbolic="YES" id="5pu-yW-CVk"/>
+                            <constraint firstItem="Mye-XU-LnL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KDl-JL-SkI"/>
                             <constraint firstItem="maJ-sJ-Mxf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mlq-CD-acj"/>
+                            <constraint firstItem="tf2-IZ-dwk" firstAttribute="top" secondItem="dRu-kz-hVA" secondAttribute="bottom" constant="8" symbolic="YES" id="N8D-a8-eei"/>
                             <constraint firstItem="maJ-sJ-Mxf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="STY-33-Iju"/>
+                            <constraint firstItem="dRu-kz-hVA" firstAttribute="top" secondItem="Yjm-fR-fwJ" secondAttribute="bottom" constant="8" symbolic="YES" id="V41-jG-xBM"/>
+                            <constraint firstItem="tf2-IZ-dwk" firstAttribute="centerX" secondItem="Yjm-fR-fwJ" secondAttribute="centerX" id="Zcy-6N-WSa"/>
+                            <constraint firstItem="dRu-kz-hVA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kGB-Jj-Gy0"/>
+                            <constraint firstItem="Mye-XU-LnL" firstAttribute="centerX" secondItem="Yjm-fR-fwJ" secondAttribute="centerX" id="uQg-rW-pFY"/>
+                            <constraint firstItem="Yjm-fR-fwJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v9G-UR-d93"/>
+                            <constraint firstItem="tf2-IZ-dwk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vSc-PN-s4G"/>
+                            <constraint firstItem="dRu-kz-hVA" firstAttribute="centerX" secondItem="Yjm-fR-fwJ" secondAttribute="centerX" id="xg7-tr-9Gn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="celsiusLabel" destination="tf2-IZ-dwk" id="UzZ-ZL-gRS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
