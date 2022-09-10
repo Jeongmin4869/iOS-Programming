@@ -71,9 +71,11 @@
                     </view>
                     <connections>
                         <outlet property="celsiusLabel" destination="tf2-IZ-dwk" id="UzZ-ZL-gRS"/>
+                        <outlet property="textField" destination="maJ-sJ-Mxf" id="LQo-oE-5Qy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="k7D-9U-WhH"/>
             </objects>
             <point key="canvasLocation" x="-17.39130434782609" y="60.9375"/>
         </scene>
