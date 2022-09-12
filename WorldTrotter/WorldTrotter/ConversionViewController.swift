@@ -61,6 +61,7 @@ class ConversionViewControlller : UIViewController, UITextViewDelegate, UITextFi
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         
+        //숫자만 허용
         let decimalDigits = CharacterSet.decimalDigits
         for char in string.unicodeScalars{
             if !decimalDigits.contains(char){
@@ -69,7 +70,10 @@ class ConversionViewControlller : UIViewController, UITextViewDelegate, UITextFi
             }
         }
         
+        //소숫점을 하나만 허용
+        //텍스트 필드 문자열
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
+        //대체 문자열 (사용자가 복붙 했을 경우)
         let replacementTextHasDecimalSeparator = string.range(of: ".")
         if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil{
             return false
@@ -77,6 +81,7 @@ class ConversionViewControlller : UIViewController, UITextViewDelegate, UITextFi
         else {
             return true
         }
+        
     }
     
     override func viewDidLoad() {
