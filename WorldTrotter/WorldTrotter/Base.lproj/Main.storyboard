@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Conversion View Controlller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ConversionViewControlller" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,6 +73,7 @@
                             <outletCollection property="gestureRecognizers" destination="Qyb-kI-XK3" appends="YES" id="S39-vv-L3K"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="pJ2-ew-gYG"/>
                     <connections>
                         <outlet property="celsiusLabel" destination="tf2-IZ-dwk" id="UzZ-ZL-gRS"/>
                         <outlet property="textField" destination="maJ-sJ-Mxf" id="LQo-oE-5Qy"/>
@@ -85,9 +86,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-17.39130434782609" y="60.9375"/>
+            <point key="canvasLocation" x="1346" y="810"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="mka-kt-XP2">
             <objects>
                 <viewController id="YHR-hx-6bz" sceneMemberID="viewController">
@@ -95,10 +96,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
+                    <tabBarItem key="tabBarItem" title="Item" id="Fpc-cg-osQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exq-CU-qc8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884" y="61"/>
+            <point key="canvasLocation" x="1348" y="34"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RQ4-e8-mFw">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fI2-OV-HII" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5D6-XX-o2D">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="YHR-hx-6bz" kind="relationship" relationship="viewControllers" id="utE-wc-7jJ"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Bzg-gD-Ki7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rvN-ek-Tf4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="34"/>
         </scene>
     </scenes>
 </document>
