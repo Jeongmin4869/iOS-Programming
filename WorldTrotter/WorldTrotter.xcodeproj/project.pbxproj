@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A12CD05228D2024E00584FA1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD05128D2024E00584FA1 /* MapViewController.swift */; };
 		A1380EA728C4C2AE00406C1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1380EA628C4C2AE00406C1D /* AppDelegate.swift */; };
 		A1380EA928C4C2AE00406C1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1380EA828C4C2AE00406C1D /* SceneDelegate.swift */; };
 		A1380EAB28C4C2AE00406C1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1380EAA28C4C2AE00406C1D /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A12CD05128D2024E00584FA1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A1380EA328C4C2AE00406C1D /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1380EA628C4C2AE00406C1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1380EA828C4C2AE00406C1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				A1380EB128C4C2AF00406C1D /* LaunchScreen.storyboard */,
 				A1380EB428C4C2AF00406C1D /* Info.plist */,
 				A1380EBA28CB662600406C1D /* ConversionViewController.swift */,
+				A12CD05128D2024E00584FA1 /* MapViewController.swift */,
 			);
 			path = WorldTrotter;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				A1380EAB28C4C2AE00406C1D /* ViewController.swift in Sources */,
 				A1380EA728C4C2AE00406C1D /* AppDelegate.swift in Sources */,
 				A1380EBB28CB662600406C1D /* ConversionViewController.swift in Sources */,
+				A12CD05228D2024E00584FA1 /* MapViewController.swift in Sources */,
 				A1380EA928C4C2AE00406C1D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
