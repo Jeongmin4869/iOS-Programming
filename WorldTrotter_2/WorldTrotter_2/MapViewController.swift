@@ -24,18 +24,36 @@ class MapViewController: UIViewController{
         
         //let leadingConstraint = segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         //let trailingConstraint = segmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        //let leadingConstraint = segmentedControl.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
-        //let trailingConstraint = segmentedControl.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+        let leadingConstraint = segmentedControl.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
+        let trailingConstraint = segmentedControl.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
         //제약조건 활성화
         topConstraint.isActive = true
-        //leadingConstraint.isActive = true
-        //trailingConstraint.isActive = true
+        leadingConstraint.isActive = true
+        trailingConstraint.isActive = true
         
         //명시적 제약조건
-        let aspectConstraint = NSLayoutConstraint(item: segmentedControl, attribute: .width, relatedBy: .equal, toItem: segmentedControl, attribute: .height, multiplier: 1.5, constant: 0.0)
-        aspectConstraint.isActive = true
+        //let aspectConstraint = NSLayoutConstraint(item: segmentedControl, attribute: .width, relatedBy: .equal, toItem: segmentedControl, attribute: .height, multiplier: 1.5, constant: 0.0)
+        //aspectConstraint.isActive = true
         
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false;
+        segmentedControl.addTarget(self, action: #selector(mapTypeChanged), for: .valueChanged)
+        view.addSubview(segmentedControl)
+    }
+    
+    @objc func mapTypeChanged(segControl: UISegmentedControl){
+        let mapView = view as! MKMapView
+        
+        switch segControl.selectedSegmentIndex{
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .hybrid
+        case 2:
+            mapView.mapType = .satellite
+        default:
+            break
+        }
     }
 }
 
