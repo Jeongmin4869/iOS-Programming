@@ -13,13 +13,23 @@ class ConversionViewControlller : UIViewController, UITextViewDelegate, UITextFi
     
     // 1
     @IBAction func fahrenheitEditingChanged(textField: UITextField){
-        
+        /*
         if let text = textField.text, let value = Double(text){
             fahrenheitVlaue = value
         }
         else{
             fahrenheitVlaue = nil
+        }*/
+        
+        if let text = textField.text, let number = numberFormatter.number(from: text){
+            fahrenheitVlaue = number.doubleValue
         }
+        else {
+            fahrenheitVlaue = nil
+        }
+        
+        
+        
     }
     
     // 3
@@ -62,6 +72,7 @@ class ConversionViewControlller : UIViewController, UITextViewDelegate, UITextFi
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         
         //숫자만 허용
+        /*
         let decimalDigits = CharacterSet.decimalDigits
         for char in string.unicodeScalars{
             if !decimalDigits.contains(char){
@@ -69,12 +80,18 @@ class ConversionViewControlller : UIViewController, UITextViewDelegate, UITextFi
                 return false;
             }
         }
+        */
         
         //소숫점을 하나만 허용
         //텍스트 필드 문자열
-        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
+        //let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         //대체 문자열 (사용자가 복붙 했을 경우)
-        let replacementTextHasDecimalSeparator = string.range(of: ".")
+        //let replacementTextHasDecimalSeparator = string.range(of: ".")
+        
+        let decimalSeparator = Locale.current.decimalSeparator
+        let existingTextHasDecimalSeparator = textField.text?.range(of: decimalSeparator!)
+        let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator!)
+        
         if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil{
             return false
         }
@@ -86,7 +103,9 @@ class ConversionViewControlller : UIViewController, UITextViewDelegate, UITextFi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         textField.delegate = self
     }
+    
 }
 
