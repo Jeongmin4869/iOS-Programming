@@ -12,7 +12,13 @@ class MapViewController: UIViewController{
         view = MKMapView()
         
         //UISegmentedControl생성.
-        let segmentedControl = UISegmentedControl(items: ["Standard","Hybird","Satellite"])
+        //let segmentedControl = UISegmentedControl(items: ["Standard","Hybird","Satellite"])
+        let standardString = NSLocalizedString("Standard", comment: "Standard Map View")
+        let satelliteSTring = NSLocalizedString("Satellite", comment: "Satellite Map View")
+        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid Map View")
+        let segmentedControl = UISegmentedControl(items: [standardString, satelliteSTring, hybridString])
+        
+        
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false // true인 경우 오토레이아웃을 하려고 한다. 이 경우 코딩으로 제약조건을 할 때 충돌하는 문제가 발생

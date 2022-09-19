@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  WorldTrotter_2
+
+  Created by 이정민 on 2022/09/19.
+  
+*/
+
+//세미콜론 주의! 무조건 필요!
+"Standard" = "Standard";
+"Hybrid" = "Hybrid";
+"Satellite" = "Satellite";
