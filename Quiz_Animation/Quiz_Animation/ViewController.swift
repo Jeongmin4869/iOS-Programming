@@ -14,8 +14,10 @@ class ViewController: UIViewController {
         questionLabel.text = questions[currentQuestionIndex]
     }
 
-    @IBOutlet var questionLabel: UILabel!
+    //@IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
+    @IBOutlet var currentQuestionLabel: UILabel!
+    @IBOutlet var nextQuestionLabel: UILabel!
     
     let questions:[String] = ["From what is cognac made?" , "What is 7 + 7?", "What is the capital of Vermont?"]
     let answers:[String] = ["Grapes", "14", "Montepeller"]
