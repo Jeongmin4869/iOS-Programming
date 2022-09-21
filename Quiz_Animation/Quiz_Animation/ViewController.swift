@@ -29,11 +29,26 @@ class ViewController: UIViewController {
         let question: String = questions[currentQuestionIndex]
         questionLabel.text = question
         answerLabel.text = "???"
+        questionLabel.alpha = 0
+        animationLabelTransition()
+        
     }
     
     @IBAction func showAnswer(sender: AnyObject){
         let answer:String = answers[currentQuestionIndex]
         answerLabel.text = answer
+    }
+    
+    func animationLabelTransition(){
+        let animationClouse = { () -> Void in
+            self.questionLabel.alpha = 1 // duration동안 최종적으로 도달하는 값
+        }
+        UIView.animate(withDuration: 2.0, animations: animationClouse)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        questionLabel.alpha = 0
     }
 
 }
