@@ -68,7 +68,10 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="3va-Ow-SOA" id="qyi-H5-R1Q"/>
-                        <outlet property="questionLabel" destination="U8z-9R-Jnf" id="jq9-sP-aED"/>
+                        <outlet property="currentQuestionLabel" destination="U8z-9R-Jnf" id="Nxw-7p-ADI"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="mug-vM-NDy" id="JlH-Qr-zzq"/>
+                        <outlet property="nextQuestionLabel" destination="LlC-7i-0LF" id="Dd6-IN-BMf"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="mwv-Qx-YfM" id="fJI-Vf-gsk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
