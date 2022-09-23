@@ -68,10 +68,10 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="3va-Ow-SOA" id="qyi-H5-R1Q"/>
-                        <outlet property="currentQuestionLabel" destination="U8z-9R-Jnf" id="Nxw-7p-ADI"/>
-                        <outlet property="currentQuestionLabelCenterXConstraint" destination="mug-vM-NDy" id="JlH-Qr-zzq"/>
-                        <outlet property="nextQuestionLabel" destination="LlC-7i-0LF" id="Dd6-IN-BMf"/>
-                        <outlet property="nextQuestionLabelCenterXConstraint" destination="mwv-Qx-YfM" id="fJI-Vf-gsk"/>
+                        <outlet property="currentQuestionLabel" destination="U8z-9R-Jnf" id="kqE-S1-P7D"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="VGI-0e-uQf" id="JpM-uO-P47"/>
+                        <outlet property="nextQuestionLabel" destination="LlC-7i-0LF" id="rpW-6V-KoX"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="mug-vM-NDy" id="nqQ-9N-NkU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
