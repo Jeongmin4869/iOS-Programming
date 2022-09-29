@@ -12,6 +12,12 @@ class ItemsViewController : UITableViewController{
         super.viewDidLoad()
         
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        
+        let height = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+
+        print("hegith : \(height)")
+        print("statusBarHeight : \(statusBarHeight)")
+        
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
