@@ -21,10 +21,16 @@ class Item : NSObject{
             super.init()
     }
     
-    convenience init(random: Bool = false){
+    init(random: Bool = false){
         
         if random == false {
-            self.init(name:"", serialNumber: nil, valueInDollars:0)
+            //self.init(name:"", serialNumber: nil, valueInDollars:0)
+            self.name = ""
+            self.valueInDollars = 0
+            self.serialNumber = nil
+            self.dateCreated = NSDate()
+            
+            super.init()
             return
         }
         
@@ -41,7 +47,13 @@ class Item : NSObject{
         let randomValue = Int(arc4random_uniform(100))
         let randomSerial = NSUUID().uuidString.components(separatedBy: "-").first!
         
-        self.init(name:randomName, serialNumber:randomSerial, valueInDollars:randomValue)
+        //self.init(name:randomName, serialNumber:randomSerial, valueInDollars:randomValue)
+        self.name = randomName
+        self.serialNumber = randomSerial
+        self.valueInDollars = randomValue
+        self.dateCreated = NSDate()
+        
+        super.init()
 
     }
 }
