@@ -18,7 +18,7 @@ class ItemsViewController : UITableViewController{
         print("hegith : \(height)")
         print("statusBarHeight : \(statusBarHeight)")
         
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        let insets = UIEdgeInsets(top: height, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
     }
@@ -37,6 +37,21 @@ class ItemsViewController : UITableViewController{
         cell!.textLabel?.text = item.name
         cell!.detailTextLabel?.text = String(item.valueInDollars)
         return cell!
+    }
+    
+    @IBAction func addNewItem(sender: AnyObject){
+        
+    }
+    
+    @IBAction func ToggleEditingMode(sender: AnyObject){
+        if isEditing{
+            sender.setTitle("Edit", for: .normal)
+            setEditing(false, animated: true)
+        }
+        else{
+            sender.setTitle("Done", for: .normal)
+            setEditing(true, animated: true)
+        }
     }
     
 }
