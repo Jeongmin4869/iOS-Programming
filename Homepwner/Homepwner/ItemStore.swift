@@ -21,4 +21,15 @@ class ItemStore: NSObject{
             self.createItem()
         }
     }
+    
+    func removeItem(index: Int){
+        allItems.remove(at: index)
+    }
+    
+    func moveItem(from: Int, to: Int){
+        let item = allItems[from]
+        allItems.remove(at: from)
+        allItems.insert(item, at: to)
+    }
+    
 }
