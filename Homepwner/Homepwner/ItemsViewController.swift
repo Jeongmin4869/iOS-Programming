@@ -39,8 +39,25 @@ class ItemsViewController : UITableViewController{
         return cell!
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            itemStore.removeItem(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        itemStore.moveItem(from: sourceIndexPath.row , to: destinationIndexPath.row)
+        tableView.reloadData()
+    }
+    
     @IBAction func addNewItem(sender: AnyObject){
+        let newItem = itemStore.createItem()
         
+        if let index = itemStore.allItems.firstIndex(of: newItem){
+            let indexPath = IndexPath(row: index, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
     }
     
     @IBAction func ToggleEditingMode(sender: AnyObject){
@@ -53,6 +70,5 @@ class ItemsViewController : UITableViewController{
             setEditing(true, animated: true)
         }
     }
-    
-    
+
 }

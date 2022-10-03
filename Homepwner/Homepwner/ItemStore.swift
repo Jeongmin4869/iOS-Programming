@@ -15,12 +15,14 @@ class ItemStore: NSObject{
         return newItem
     }
     
+    /*
     override init() {
         super.init()
         for _ in 0..<5{
             self.createItem()
         }
     }
+     */
     
     func removeItem(index: Int){
         allItems.remove(at: index)
