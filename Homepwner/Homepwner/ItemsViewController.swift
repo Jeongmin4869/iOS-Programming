@@ -41,8 +41,26 @@ class ItemsViewController : UITableViewController{
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            itemStore.removeItem(index: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            //temStore.removeItem(index: indexPath.row)
+            //tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            let item = itemStore.allItems[indexPath.row]
+            
+            let title = "Delete \(item.name)"
+            let message = "Are you sure you want to delete this item?"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action)->Void in
+                self.itemStore.removeItem(index: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+            })
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(deleteAction)
+            present(alertController, animated: true, completion: nil)
+ 
         }
     }
     
