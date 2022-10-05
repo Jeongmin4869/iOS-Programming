@@ -15,6 +15,7 @@
 		A12CD0A128DF1A5900584FA1 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD0A028DF1A5900584FA1 /* ItemsViewController.swift */; };
 		A12CD0A528DF1D0B00584FA1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD0A428DF1D0B00584FA1 /* Item.swift */; };
 		A12CD0A728E0940800584FA1 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD0A628E0940800584FA1 /* ItemStore.swift */; };
+		A12CD0A928EDA06A00584FA1 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD0A828EDA06A00584FA1 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A12CD0A028DF1A5900584FA1 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		A12CD0A428DF1D0B00584FA1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A12CD0A628E0940800584FA1 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		A12CD0A828EDA06A00584FA1 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				A12CD08C28DDE84000584FA1 /* AppDelegate.swift */,
+				A12CD0A828EDA06A00584FA1 /* ItemCell.swift */,
 				A12CD08E28DDE84000584FA1 /* SceneDelegate.swift */,
 				A12CD0A028DF1A5900584FA1 /* ItemsViewController.swift */,
 				A12CD09228DDE84000584FA1 /* Main.storyboard */,
@@ -146,6 +149,7 @@
 			files = (
 				A12CD0A528DF1D0B00584FA1 /* Item.swift in Sources */,
 				A12CD0A128DF1A5900584FA1 /* ItemsViewController.swift in Sources */,
+				A12CD0A928EDA06A00584FA1 /* ItemCell.swift in Sources */,
 				A12CD08D28DDE84000584FA1 /* AppDelegate.swift in Sources */,
 				A12CD0A728E0940800584FA1 /* ItemStore.swift in Sources */,
 				A12CD08F28DDE84000584FA1 /* SceneDelegate.swift in Sources */,
