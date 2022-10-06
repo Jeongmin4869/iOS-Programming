@@ -32,11 +32,18 @@ class ItemsViewController : UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! ItemCell
+        
         let item = itemStore.allItems[indexPath.row]
-        cell!.textLabel?.text = item.name
-        cell!.detailTextLabel?.text = String(item.valueInDollars)
-        return cell!
+        
+        //cell!.textLabel?.text = item.name
+        //cell!.detailTextLabel?.text = String(item.valueInDollars)
+        cell.nameLabel?.text = item.name
+        cell.serialNumberLabel?.text = item.serialNumber
+        cell.valueLabel?.text = "$\(item.valueInDollars)"
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
