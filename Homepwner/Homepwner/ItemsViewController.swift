@@ -21,6 +21,11 @@ class ItemsViewController : UITableViewController{
         let insets = UIEdgeInsets(top: height, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        /*코드추가. 그러나 별다른 변화 없음*/
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
