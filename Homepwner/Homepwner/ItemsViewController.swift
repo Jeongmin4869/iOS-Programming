@@ -46,6 +46,11 @@ class ItemsViewController : UITableViewController{
         return cell
     }
     
+    /* 셀 높이 지정 에러 해결방법 */
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65.0
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             //temStore.removeItem(index: indexPath.row)
