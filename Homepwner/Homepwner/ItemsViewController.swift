@@ -23,9 +23,10 @@ class ItemsViewController : UITableViewController{
         tableView.scrollIndicatorInsets = insets
         
         /*코드추가. 그러나 별다른 변화 없음*/
+        /*
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
-        
+        */
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -51,10 +52,13 @@ class ItemsViewController : UITableViewController{
         return cell
     }
     
+    
     /* 셀 높이 지정 에러 해결방법 */
+    /*
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65.0
     }
+    */
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
