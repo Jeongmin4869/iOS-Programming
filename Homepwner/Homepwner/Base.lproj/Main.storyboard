@@ -97,21 +97,22 @@
                             <outlet property="delegate" destination="gEg-vj-dw0" id="JcV-H9-VHZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yYY-5T-q15"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0B1-nv-n7L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="319" y="61"/>
+            <point key="canvasLocation" x="1228.985507246377" y="60.9375"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="O4N-AV-czW">
             <objects>
                 <viewController id="hKf-zc-EKM" customClass="DetailViewController" customModule="Homepwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9EO-qw-NLN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zyq-Ow-kOB">
-                                <rect key="frame" x="8" y="52" width="398" height="782"/>
+                                <rect key="frame" x="8" y="96" width="398" height="758"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FEI-Za-Emd">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
@@ -162,7 +163,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdx-Dp-UPY" userLabel="Date Created">
-                                        <rect key="frame" x="0.0" y="132" width="398" height="650"/>
+                                        <rect key="frame" x="0.0" y="132" width="398" height="626"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -193,7 +194,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ff5-qT-b5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1171" y="61"/>
+            <point key="canvasLocation" x="2079.7101449275365" y="60.9375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jvl-Al-Oef">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dCH-Az-Kk0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jMe-va-EZb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gEg-vj-dw0" kind="relationship" relationship="rootViewController" id="DGl-Ff-lfy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tDd-Cg-Vmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="318.84057971014494" y="60.9375"/>
         </scene>
     </scenes>
     <resources>
