@@ -17,12 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let itemsController = storyboard.instantiateViewController(withIdentifier: "ItemsViewController") as! ItemsViewController
+        //let itemsController = storyboard.instantiateViewController(withIdentifier: "ItemsViewController") as! ItemsViewController
+        
+        let navigationController = window!.rootViewController as! UINavigationController
+        let itemsController = navigationController.viewControllers[0] as! ItemsViewController
         
         //초기 데이터 설정
         itemsController.itemStore = itemStore
-        window?.rootViewController = itemsController
-        window?.makeKeyAndVisible()
+        //window?.rootViewController = itemsController
+        //window?.makeKeyAndVisible()
 
         
         return true

@@ -14,7 +14,7 @@ class DetailViewController : UIViewController {
     @IBOutlet weak var valueField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var Item: Item! // 이 뷰 컨트롤러의 뷰가 나타나기 전에 누군가 Assign할 수 있다
+    var item: Item! // 이 뷰 컨트롤러의 뷰가 나타나기 전에 누군가 Assign할 수 있다
     let numberFormatter: NumberFormatter={
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -30,13 +30,24 @@ class DetailViewController : UIViewController {
         return formatter
     }()
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        item.name = nameField.text ?? ""
+        item.serialNumber = serialNumberField.text
+        item.valueInDollars = 0
+        if let valueText = valueField.text{
+            let value = numberFormatter.number(from:  valueText)
+            item.valueInDollars = (value?.intValue)!
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        nameField.text = Item.name
-        serialNumberField.text = Item.serialNumber
-        valueField.text = numberFormatter.string(from: NSNumber(value: Item.valueInDollars))
-        dateLabel.text = dateFormatter.string(from: Item.dateCreated as Date)
+        nameField.text = item.name
+        serialNumberField.text = item.serialNumber
+        valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
+        dateLabel.text = dateFormatter.string(from: item.dateCreated as Date)
     }
     
     
