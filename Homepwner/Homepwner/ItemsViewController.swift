@@ -39,7 +39,7 @@ class ItemsViewController : UITableViewController{
             if let row = tableView.indexPathForSelectedRow?.row{
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
-                detailViewController.Item = item
+                detailViewController.item = item
             }
         }
     }

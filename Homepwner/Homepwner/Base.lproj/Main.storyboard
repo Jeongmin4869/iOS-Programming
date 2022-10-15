@@ -127,6 +127,9 @@
                                                 <rect key="frame" x="55" y="0.0" width="343" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="hKf-zc-EKM" id="jGQ-Pt-NUf"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -143,6 +146,9 @@
                                                 <rect key="frame" x="55" y="0.0" width="343" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="hKf-zc-EKM" id="ASi-Rb-14b"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -159,6 +165,9 @@
                                                 <rect key="frame" x="55" y="0.0" width="343" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="hKf-zc-EKM" id="X4n-BU-lk4"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -177,12 +186,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J8I-6k-YVp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="J8I-6k-YVp" firstAttribute="bottom" secondItem="Zyq-Ow-kOB" secondAttribute="bottom" constant="8" id="CQZ-I8-qTC"/>
                             <constraint firstItem="Zyq-Ow-kOB" firstAttribute="leading" secondItem="J8I-6k-YVp" secondAttribute="leading" constant="8" id="WfM-Vg-Hoy"/>
                             <constraint firstItem="Zyq-Ow-kOB" firstAttribute="top" secondItem="J8I-6k-YVp" secondAttribute="top" constant="8" id="Z6U-UZ-fci"/>
                             <constraint firstItem="J8I-6k-YVp" firstAttribute="trailing" secondItem="Zyq-Ow-kOB" secondAttribute="trailing" constant="8" id="a15-8n-fCC"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="oCg-hF-g68" appends="YES" id="BGv-QH-eGK"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="w32-En-Kyh"/>
                     <connections>
@@ -193,6 +206,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ff5-qT-b5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="oCg-hF-g68"/>
             </objects>
             <point key="canvasLocation" x="2079.7101449275365" y="60.9375"/>
         </scene>
