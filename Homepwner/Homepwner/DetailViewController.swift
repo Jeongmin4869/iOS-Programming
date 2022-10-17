@@ -14,7 +14,13 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var valueField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var item: Item! // 이 뷰 컨트롤러의 뷰가 나타나기 전에 누군가 Assign할 수 있다
+    var item: Item!{
+        didSet{
+            navigationItem.title = item.name
+        }
+    }
+    
+    
     let numberFormatter: NumberFormatter={
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -58,6 +64,9 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
         serialNumberField.text = item.serialNumber
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated as Date)
+        
+        navigationItem.title = item.name
+        
     }
  
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
