@@ -39,6 +39,9 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
+        view.endEditing(true)
+        
         item.name = nameField.text ?? ""
         item.serialNumber = serialNumberField.text
         item.valueInDollars = 0
@@ -60,6 +63,16 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true) // UITextField에 관계없이 키보드를 숨긴다
+        
+        //nameField.resignFirstResponder()
+        //serialNumberField.resignFirstResponder()
+        //valueField.resignFirstResponder()
+    
     }
     
     

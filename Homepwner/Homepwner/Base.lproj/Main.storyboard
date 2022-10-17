@@ -206,9 +206,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ff5-qT-b5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="oCg-hF-g68"/>
+                <tapGestureRecognizer id="oCg-hF-g68">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="hKf-zc-EKM" id="Gz2-hh-2VQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2079.7101449275365" y="60.9375"/>
+            <point key="canvasLocation" x="1986" y="61"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jvl-Al-Oef">
