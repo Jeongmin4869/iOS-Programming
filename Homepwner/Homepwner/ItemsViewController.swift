@@ -116,6 +116,27 @@ class ItemsViewController : UITableViewController{
     }
     
     @IBAction func ToggleEditingMode(sender: AnyObject){
+        if let target = sender as? UIBarButtonItem{
+            if isEditing{
+                target.title = "Edit"
+                setEditing(false, animated: true)
+            }else {
+                target.title = "Done"
+                setEditing(true, animated: true)
+            }
+        }
+        
+        if let target = sender as? UIButton{
+            if isEditing{
+                target.setTitle("Editing", for: .normal)
+                setEditing(false, animated: true)
+            }else {
+                target.setTitle("Done", for: .normal)
+                setEditing(true, animated: true)
+            }
+        }
+        
+        /*
         if isEditing{
             sender.setTitle("Edit", for: .normal)
             setEditing(false, animated: true)
@@ -124,6 +145,8 @@ class ItemsViewController : UITableViewController{
             sender.setTitle("Done", for: .normal)
             setEditing(true, animated: true)
         }
+        */
     }
+    
 
 }

@@ -19,33 +19,7 @@
                         <view key="tableHeaderView" contentMode="scaleToFill" id="HXC-hK-2hC">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wd-tn-D9I">
-                                    <rect key="frame" x="8" y="6.5" width="195" height="31"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Edit"/>
-                                    <connections>
-                                        <action selector="ToggleEditingModeWithSender:" destination="gEg-vj-dw0" eventType="touchUpInside" id="Xxk-9S-sZA"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2D-eT-nn6">
-                                    <rect key="frame" x="211" y="6.5" width="195" height="31"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
-                                    <connections>
-                                        <action selector="addNewItemWithSender:" destination="gEg-vj-dw0" eventType="touchUpInside" id="xKD-VS-Cbq"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="J2D-eT-nn6" secondAttribute="trailing" constant="8" id="1Ub-JL-eVV"/>
-                                <constraint firstItem="3Wd-tn-D9I" firstAttribute="leading" secondItem="HXC-hK-2hC" secondAttribute="leading" constant="8" id="FlD-gl-dEJ"/>
-                                <constraint firstItem="J2D-eT-nn6" firstAttribute="width" secondItem="3Wd-tn-D9I" secondAttribute="width" id="YTA-pn-qFL"/>
-                                <constraint firstItem="J2D-eT-nn6" firstAttribute="centerY" secondItem="HXC-hK-2hC" secondAttribute="centerY" id="e8R-Qf-k18"/>
-                                <constraint firstItem="J2D-eT-nn6" firstAttribute="leading" secondItem="3Wd-tn-D9I" secondAttribute="trailing" constant="8" id="feX-X6-4c4"/>
-                                <constraint firstItem="3Wd-tn-D9I" firstAttribute="centerY" secondItem="HXC-hK-2hC" secondAttribute="centerY" id="mlm-Oa-coq"/>
-                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ItemCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="NbH-HA-RQn" customClass="ItemCell" customModule="Homepwner" customModuleProvider="target">
@@ -97,7 +71,18 @@
                             <outlet property="delegate" destination="gEg-vj-dw0" id="JcV-H9-VHZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yYY-5T-q15"/>
+                    <navigationItem key="navigationItem" id="yYY-5T-q15">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="1eN-aV-ggJ">
+                            <connections>
+                                <action selector="ToggleEditingModeWithSender:" destination="gEg-vj-dw0" id="yQK-oB-CYa"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="waZ-NG-bag">
+                            <connections>
+                                <action selector="addNewItemWithSender:" destination="gEg-vj-dw0" id="XQR-Nn-N47"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0B1-nv-n7L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,7 +149,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UWq-kH-PXb">
                                                 <rect key="frame" x="55" y="0.0" width="343" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="hKf-zc-EKM" id="X4n-BU-lk4"/>
                                                 </connections>
