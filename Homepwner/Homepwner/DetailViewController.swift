@@ -83,5 +83,14 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
         //valueField.resignFirstResponder()
     
     }
+    
+    //prepare
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DatePicker"{
+            let datePickerViewController = segue.destination as! DatePickerViewController
+            datePickerViewController.item = item
+        }
+    }
+    
 
 }
