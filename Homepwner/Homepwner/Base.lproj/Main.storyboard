@@ -97,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zyq-Ow-kOB">
-                                <rect key="frame" x="8" y="96" width="398" height="758"/>
+                                <rect key="frame" x="8" y="96" width="398" height="706"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FEI-Za-Emd">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
@@ -162,32 +162,48 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="AMI-Nc-PAC">
-                                        <rect key="frame" x="0.0" y="162.5" width="398" height="554.5"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FsD-4O-B6c">
-                                        <rect key="frame" x="0.0" y="727" width="398" height="31"/>
+                                        <rect key="frame" x="0.0" y="162.5" width="398" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Chage Date"/>
                                         <connections>
                                             <segue destination="dZl-iC-uv0" kind="show" identifier="DatePicker" id="Ghr-QZ-6l5"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="AMI-Nc-PAC">
+                                        <rect key="frame" x="0.0" y="203.5" width="398" height="502.5"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Lzd-mC-wGT" firstAttribute="trailing" secondItem="dTm-dp-Uhl" secondAttribute="trailing" id="M8t-vV-uDC"/>
                                     <constraint firstItem="hFL-F1-ulk" firstAttribute="trailing" secondItem="Lzd-mC-wGT" secondAttribute="trailing" id="nI7-N1-fSL"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nA5-ps-OwJ">
+                                <rect key="frame" x="8" y="810" width="398" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gmb-3p-HNz"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="6oE-44-vQN">
+                                        <connections>
+                                            <action selector="takePicture:" destination="hKf-zc-EKM" id="FGa-nE-Zvx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J8I-6k-YVp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="J8I-6k-YVp" firstAttribute="bottom" secondItem="Zyq-Ow-kOB" secondAttribute="bottom" constant="8" id="CQZ-I8-qTC"/>
+                            <constraint firstItem="nA5-ps-OwJ" firstAttribute="top" secondItem="Zyq-Ow-kOB" secondAttribute="bottom" constant="8" id="NBM-HP-VJU"/>
+                            <constraint firstItem="J8I-6k-YVp" firstAttribute="bottom" secondItem="nA5-ps-OwJ" secondAttribute="bottom" constant="8" id="Okk-rc-N8k"/>
                             <constraint firstItem="Zyq-Ow-kOB" firstAttribute="leading" secondItem="J8I-6k-YVp" secondAttribute="leading" constant="8" id="WfM-Vg-Hoy"/>
                             <constraint firstItem="Zyq-Ow-kOB" firstAttribute="top" secondItem="J8I-6k-YVp" secondAttribute="top" constant="8" id="Z6U-UZ-fci"/>
                             <constraint firstItem="J8I-6k-YVp" firstAttribute="trailing" secondItem="Zyq-Ow-kOB" secondAttribute="trailing" constant="8" id="a15-8n-fCC"/>
+                            <constraint firstItem="nA5-ps-OwJ" firstAttribute="leading" secondItem="J8I-6k-YVp" secondAttribute="leading" constant="8" id="n8J-MB-Hu9"/>
+                            <constraint firstAttribute="trailing" secondItem="nA5-ps-OwJ" secondAttribute="trailing" constant="8" id="zed-ht-BcD"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="oCg-hF-g68" appends="YES" id="BGv-QH-eGK"/>
@@ -196,6 +212,7 @@
                     <navigationItem key="navigationItem" id="w32-En-Kyh"/>
                     <connections>
                         <outlet property="dateLabel" destination="fdx-Dp-UPY" id="BhM-Du-b31"/>
+                        <outlet property="imageView" destination="AMI-Nc-PAC" id="mWO-4f-BrH"/>
                         <outlet property="nameField" destination="Vx2-Fj-Bqo" id="Yd3-7w-aGc"/>
                         <outlet property="serialNumberField" destination="d3D-M0-W6O" id="QnZ-sp-2VR"/>
                         <outlet property="valueField" destination="UWq-kH-PXb" id="b3b-7n-AX9"/>

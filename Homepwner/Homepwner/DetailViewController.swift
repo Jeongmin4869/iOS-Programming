@@ -13,6 +13,7 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var serialNumberField: UITextField!
     @IBOutlet weak var valueField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     var item: Item!{
         didSet{
@@ -83,6 +84,10 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
         //valueField.resignFirstResponder()
     
     }
+    
+    @IBAction func takePicture(_ sender: UIBarButtonItem) {
+    }
+    
     
     //prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
