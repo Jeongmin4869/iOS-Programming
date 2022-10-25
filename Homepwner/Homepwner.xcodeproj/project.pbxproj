@@ -19,6 +19,7 @@
 		A12CD0AD28F6F3F300584FA1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD0AC28F6F3F300584FA1 /* DetailViewController.swift */; };
 		A12CD0B129001F1100584FA1 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD0B029001F1100584FA1 /* TextField.swift */; };
 		A12CD0B32901756900584FA1 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD0B22901756900584FA1 /* DatePickerViewController.swift */; };
+		A12CD0B529080F1F00584FA1 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12CD0B429080F1E00584FA1 /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A12CD0AC28F6F3F300584FA1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A12CD0B029001F1100584FA1 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		A12CD0B22901756900584FA1 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		A12CD0B429080F1E00584FA1 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				A12CD0AC28F6F3F300584FA1 /* DetailViewController.swift */,
 				A12CD0B029001F1100584FA1 /* TextField.swift */,
 				A12CD0B22901756900584FA1 /* DatePickerViewController.swift */,
+				A12CD0B429080F1E00584FA1 /* ImageStore.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				A12CD0A528DF1D0B00584FA1 /* Item.swift in Sources */,
 				A12CD0A128DF1A5900584FA1 /* ItemsViewController.swift in Sources */,
 				A12CD0B32901756900584FA1 /* DatePickerViewController.swift in Sources */,
+				A12CD0B529080F1F00584FA1 /* ImageStore.swift in Sources */,
 				A12CD0A928EDA06A00584FA1 /* ItemCell.swift in Sources */,
 				A12CD0B129001F1100584FA1 /* TextField.swift in Sources */,
 				A12CD08D28DDE84000584FA1 /* AppDelegate.swift in Sources */,
