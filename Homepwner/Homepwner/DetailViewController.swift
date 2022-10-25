@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController : UIViewController, UITextFieldDelegate {
+class DetailViewController : UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var serialNumberField: UITextField!
@@ -95,8 +95,20 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
             imagePicker.sourceType = .photoLibrary
         }
         
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+        
     }
     
+    //이미지 저장
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        imageView.image = image
+        
+        //피커를 화면에서 사라지게 한다
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     //prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
