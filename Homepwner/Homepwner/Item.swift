@@ -10,6 +10,7 @@ class Item : NSObject{
     var valueInDollars: Int
     var serialNumber: String?
     var dateCreated: NSDate
+    let itemKey: String
     
     init(name: String, serialNumber: String?, valueInDollars: Int){
             
@@ -17,6 +18,7 @@ class Item : NSObject{
             self.valueInDollars = valueInDollars
             self.serialNumber = serialNumber
             self.dateCreated = NSDate()
+            self.itemKey = NSUUID().uuidString
             
             super.init()
     }
@@ -29,6 +31,7 @@ class Item : NSObject{
             self.valueInDollars = 0
             self.serialNumber = nil
             self.dateCreated = NSDate()
+            self.itemKey = ""
             
             super.init()
             return
@@ -46,12 +49,14 @@ class Item : NSObject{
         let randomName = "\(randdomAdjective)\(randdomNoun)"
         let randomValue = Int(arc4random_uniform(100))
         let randomSerial = NSUUID().uuidString.components(separatedBy: "-").first!
+        let uuid = NSUUID().uuidString
         
         //self.init(name:randomName, serialNumber:randomSerial, valueInDollars:randomValue)
         self.name = randomName
         self.serialNumber = randomSerial
         self.valueInDollars = randomValue
         self.dateCreated = NSDate()
+        self.itemKey = uuid
         
         super.init()
 

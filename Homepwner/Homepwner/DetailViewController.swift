@@ -21,6 +21,7 @@ class DetailViewController : UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
+    var imageStore: ImageStore!
     
     let numberFormatter: NumberFormatter={
         let formatter = NumberFormatter()
@@ -66,6 +67,11 @@ class DetailViewController : UIViewController, UITextFieldDelegate, UIImagePicke
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated as Date)
         
+        if let image = imageStore.imageForKey(key: item.itemKey){
+            imageView.image = image
+        }
+        
+        
         navigationItem.title = item.name
         
     }
@@ -105,6 +111,7 @@ class DetailViewController : UIViewController, UITextFieldDelegate, UIImagePicke
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imageView.image = image
+        imageStore.setImage(image: image, forKey: item.itemKey)
         
         //피커를 화면에서 사라지게 한다
         picker.dismiss(animated: true, completion: nil)

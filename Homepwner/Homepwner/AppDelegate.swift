@@ -12,6 +12,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let itemStore = ItemStore()
+    
+    //이미지 저장소 접근권한
+    let imageStore = ImageStore()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -27,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //window?.rootViewController = itemsController
         //window?.makeKeyAndVisible()
 
+        itemsController.imageStore = imageStore
+        
         
         return true
     }

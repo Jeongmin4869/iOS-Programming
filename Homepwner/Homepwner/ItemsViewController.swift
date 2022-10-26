@@ -7,6 +7,7 @@ import UIKit
 
 class ItemsViewController : UITableViewController{
     var itemStore: ItemStore! // reference
+    var imageStore: ImageStore! // 이미지 접근 권한
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class ItemsViewController : UITableViewController{
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
+                detailViewController.imageStore = imageStore
             }
         }
     }
@@ -90,6 +92,7 @@ class ItemsViewController : UITableViewController{
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action)->Void in
                 self.itemStore.removeItem(index: indexPath.row)
+                self.imageStore.deleteImage(key: item.itemKey)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 
             })
