@@ -9,6 +9,16 @@ import UIKit
 class ItemStore: NSObject{
     var allItems = [Item]()
     
+    let itemAchiveURL: URL = {
+        var documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return documentsDirectory.appendingPathComponent("items.archive")
+    }()
+    
+    func saveChanges() -> Bool{
+        print("Saving Items to : \(itemAchiveURL.path)")
+        return NSKeyedArchiver.archiveRootObject(allItems, toFile: itemAchiveURL.path)
+    }
+    
     func createItem() -> Item {
         let newItem = Item(random: true)
         allItems.append(newItem)
