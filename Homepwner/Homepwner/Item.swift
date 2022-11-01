@@ -18,7 +18,7 @@ class Item : NSObject, NSCoding{
         aCoder.encode(dateCreated, forKey: "dateCreated")
         aCoder.encode(itemKey, forKey: "itemKey")
         aCoder.encode(serialNumber, forKey: "serialNumber")
-        aCoder.encode(valueInDollars, forKey: "valueDollars")
+        aCoder.encode(valueInDollars, forKey: "valueInDollars")
     }
     
     required init?(coder aDecoder: NSCoder) {
