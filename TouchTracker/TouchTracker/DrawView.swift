@@ -8,7 +8,7 @@ class DrawView: UIView{
     
     func strokeLine(line: Line){
         let path = UIBezierPath()
-        path.lineWidth = 10;
+        path.lineWidth = lineThickness;
         path.lineCapStyle = CGLineCap.round
         path.move(to: line.begin)
         path.addLine(to: line.end)
@@ -16,7 +16,8 @@ class DrawView: UIView{
     }
     
     override func draw(_ rect: CGRect) {
-        UIColor.black.setStroke()
+        //UIColor.black.setStroke()
+        finishedLineColor.setStroke();
         for line in finishedLines{
             strokeLine(line: line)
         }
@@ -24,7 +25,8 @@ class DrawView: UIView{
         //    UIColor.red.setStroke()
         //    strokeLine(line: line)
         //}
-        UIColor.red.setStroke()
+        currentLineColor.setStroke()
+        //UIColor.red.setStroke()
         for (_,line) in currentLines{
             strokeLine(line: line)
         }
@@ -81,4 +83,21 @@ class DrawView: UIView{
         setNeedsDisplay()
     }
     
+    @IBInspectable var finishedLineColor: UIColor = UIColor.black{
+        didSet{
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable var currentLineColor: UIColor = UIColor.red{
+        didSet{
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable var lineThickness: CGFloat = 10{
+        didSet{
+            setNeedsDisplay()
+        }
+    }
 }
