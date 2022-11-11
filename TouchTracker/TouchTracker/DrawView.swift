@@ -6,6 +6,22 @@ class DrawView: UIView{
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTap))
+        doubleTapRecognizer.numberOfTapsRequired = 2
+        doubleTapRecognizer.delaysTouchesBegan = true
+        addGestureRecognizer(doubleTapRecognizer)
+    }
+    
+    @objc func doubleTap(gestureRecognizer: UITapGestureRecognizer){
+        print(#function)
+        currentLines.removeAll()
+        finishedLines.removeAll()
+        setNeedsDisplay()
+    }
+    
     func strokeLine(line: Line){
         let path = UIBezierPath()
         path.lineWidth = lineThickness;
