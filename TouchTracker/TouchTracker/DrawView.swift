@@ -5,6 +5,7 @@ class DrawView: UIView{
     //var currentLine: Line?
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
+    var selectedLineIndex: Int?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -13,6 +14,14 @@ class DrawView: UIView{
         doubleTapRecognizer.numberOfTapsRequired = 2
         doubleTapRecognizer.delaysTouchesBegan = true
         addGestureRecognizer(doubleTapRecognizer)
+        
+        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(singleTap))
+        singleTapRecognizer.numberOfTapsRequired = 1
+        singleTapRecognizer.delaysTouchesBegan = true
+        //doubleTapRecognizer을 실패할 경우 singleTapRecognizer가 수행된다.
+        singleTapRecognizer.require(toFail: doubleTapRecognizer)
+        addGestureRecognizer(singleTapRecognizer)
+        
     }
     
     @objc func doubleTap(gestureRecognizer: UITapGestureRecognizer){
@@ -20,6 +29,16 @@ class DrawView: UIView{
         currentLines.removeAll()
         finishedLines.removeAll()
         setNeedsDisplay()
+    }
+    
+    @objc func singleTap(gestureRecognizer: UITapGestureRecognizer){
+        let point = gestureRecognizer.location(in: self)
+        selectedLineIndex = IndexOfLineAtPoint(point: point)
+        setNeedsDisplay()
+    }
+    
+    func indexOfLineAtPoint(point: CGPoint) -> Int?{
+        for(index, line) in
     }
     
     func strokeLine(line: Line){
@@ -45,6 +64,12 @@ class DrawView: UIView{
         //UIColor.red.setStroke()
         for (_,line) in currentLines{
             strokeLine(line: line)
+        }
+        
+        if let index = selectedLineIndex{
+            UIColor.blue.setStroke()
+            let selectedLine = finishedLines[index]
+            strokeLine(line: selectedLine)
         }
         
     }
