@@ -34,11 +34,22 @@ class DrawView: UIView{
     @objc func singleTap(gestureRecognizer: UITapGestureRecognizer){
         let point = gestureRecognizer.location(in: self)
         selectedLineIndex = IndexOfLineAtPoint(point: point)
-        setNeedsDisplay()
+        setNeedsDisplay() // draw를 호출
     }
     
-    func indexOfLineAtPoint(point: CGPoint) -> Int?{
-        for(index, line) in
+    func IndexOfLineAtPoint(point: CGPoint) -> Int?{
+        for(index, line) in finishedLines.enumerated(){
+            let begin = line.begin
+            let end = line.end
+            for t: CGFloat in stride(from: 0.0, to: 1.0, by: 0.05){
+                let x = begin.x + (end.x - begin.x) * t
+                let y = begin.y + (end.y - begin.y) * t
+                if hypot(x - point.x, y - point.y) < 20.0 {
+                    return index
+                }
+            }
+        }
+        return nil
     }
     
     func strokeLine(line: Line){
