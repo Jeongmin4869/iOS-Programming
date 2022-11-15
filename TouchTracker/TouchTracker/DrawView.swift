@@ -5,7 +5,14 @@ class DrawView: UIView{
     //var currentLine: Line?
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
-    var selectedLineIndex: Int?
+    var selectedLineIndex: Int?{
+        didSet{
+            if selectedLineIndex == nil {
+                let menuController = UIMenuController.shared
+                menuController.setMenuVisible(false, animated: true)
+            }
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,12 +35,25 @@ class DrawView: UIView{
         print(#function)
         currentLines.removeAll()
         finishedLines.removeAll()
+        selectedLineIndex = nil
         setNeedsDisplay()
     }
     
     @objc func singleTap(gestureRecognizer: UITapGestureRecognizer){
         let point = gestureRecognizer.location(in: self)
         selectedLineIndex = IndexOfLineAtPoint(point: point)
+        
+        let menuController = UIMenuController.shared
+        if selectedLineIndex != nil {
+            becomeFirstResponder()
+            let deleteItem = UIMenuItem(title: "Delete", action: #selector(deleteLine))
+            menuController.menuItems = [deleteItem]
+            menuController.setTargetRect(CGRect(x: point.x, y: point.y, width: 2, height: 2), in: self)
+            menuController.setMenuVisible(true, animated: true)
+        }
+        else {
+            menuController.setMenuVisible(false, animated: true)
+        }
         setNeedsDisplay() // draw를 호출
     }
     
@@ -133,6 +153,18 @@ class DrawView: UIView{
         //}
         //currentLine = nil
         setNeedsDisplay()
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+    
+    @objc func deleteLine(sender: AnyObject){
+        if let index = selectedLineIndex{
+            finishedLines.remove(at: index)
+            selectedLineIndex = nil
+            setNeedsDisplay()
+        }
     }
     
     @IBInspectable var finishedLineColor: UIColor = UIColor.black{
