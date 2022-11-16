@@ -1,6 +1,8 @@
 import UIKit
 
-class DrawView: UIView{
+class DrawView: UIView, UIGestureRecognizerDelegate{
+    
+    var moveRecognizer: UIPanGestureRecognizer!
     
     //var currentLine: Line?
     var currentLines = [NSValue:Line]()
@@ -28,6 +30,14 @@ class DrawView: UIView{
         //doubleTapRecognizer을 실패할 경우 singleTapRecognizer가 수행된다.
         singleTapRecognizer.require(toFail: doubleTapRecognizer)
         addGestureRecognizer(singleTapRecognizer)
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action:#selector(longPress))
+        addGestureRecognizer(longPressRecognizer)
+        
+        moveRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveLine))
+        moveRecognizer.cancelsTouchesInView = false // touch와 pan 모두 인식
+        moveRecognizer.delegate = self // 이 인신기만 다른 제스처인식기와 동시에 발생하도록 한다.
+        addGestureRecognizer(moveRecognizer)
         
     }
     
@@ -57,6 +67,41 @@ class DrawView: UIView{
         setNeedsDisplay() // draw를 호출
     }
     
+    @objc func longPress(gestureRecognizer: UILongPressGestureRecognizer){
+        if gestureRecognizer.state == .began{
+            let point = gestureRecognizer.location(in: self)
+            selectedLineIndex = IndexOfLineAtPoint(point: point)
+            
+            if selectedLineIndex != nil {
+                currentLines.removeAll(keepingCapacity: false)
+            }
+        }
+        else if gestureRecognizer.state == .ended {
+            selectedLineIndex = nil
+        }
+        setNeedsDisplay()
+    }
+    
+    @objc func moveLine(gestureRecognizer: UIPanGestureRecognizer){
+        if let index = selectedLineIndex {
+            if gestureRecognizer.state == .changed {
+                let translation = gestureRecognizer.translation(in: self)
+                finishedLines[index].begin.x += translation.x
+                finishedLines[index].begin.y += translation.y
+                finishedLines[index].end.x += translation.x
+                finishedLines[index].end.y += translation.y
+                gestureRecognizer.setTranslation(CGPoint.zero, in: self)
+                
+                setNeedsDisplay()
+            }
+        }
+    }
+    
+    //moveRecognizer에 대해서는 true를 return, 다른 제스처는 delegate가 없어 false를 return
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true //long과 pan이 동시에 발생할 경우 pan만 인식됨
+    }
+    
     func IndexOfLineAtPoint(point: CGPoint) -> Int?{
         for(index, line) in finishedLines.enumerated(){
             let begin = line.begin
@@ -83,7 +128,7 @@ class DrawView: UIView{
     
     override func draw(_ rect: CGRect) {
         //UIColor.black.setStroke()
-        finishedLineColor.setStroke();
+        finishedLineColor.setStroke()
         for line in finishedLines{
             strokeLine(line: line)
         }
