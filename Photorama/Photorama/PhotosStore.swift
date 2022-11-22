@@ -13,12 +13,12 @@ class PhotosStore{
         
         let task: URLSessionDataTask = session.dataTask(with: request, completionHandler: {
             
-            (data, request, error) -> Void in
+            (data, response, error) -> Void in
             
             
             if let jsonData = data{
                 if let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue){
-                    print(jsonData)
+                    print(jsonString)
                 }
             }else if let requestError = error {
                 print("Error : fetchibgn recdent photos : \(requestError)")
