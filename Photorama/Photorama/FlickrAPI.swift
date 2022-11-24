@@ -38,4 +38,23 @@ struct FlickrAPI{
     static func recentPhotosURL()->URL {
         return flickrURL(method: .RecentPhotos, parameters: ["extras":"url_h, date_taken"])
     }
+    
+    private static let dateFormattehr: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter
+    }()
+    private static func photoFromJSONObject(json: [String: AnyObject]) -> Photo? {
+        guard
+            let photoID = json["id"] as? String,
+            let title = json["title"] as? String,
+            let dateString = json["dateTaken"] as? String,
+            let photoURLString = json["url_h"] as? String,
+            let url = URL(string: photoURLString),
+            let dateTaken = dateFormattehr.date(from: dateString)
+        else {
+            return nil
+        }
+        return Photo(title: title, remoteURL: url, photoID: photoID, dateTaken: dateTaken)a
+    }
 }
