@@ -55,6 +55,6 @@ struct FlickrAPI{
         else {
             return nil
         }
-        return Photo(title: title, remoteURL: url, photoID: photoID, dateTaken: dateTaken)a
+        return Photo(title: title, remoteURL: url, photoID: photoID, dateTaken: dateTaken)
     }
 }
