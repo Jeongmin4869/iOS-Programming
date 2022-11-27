@@ -20,6 +20,8 @@ class PhotosStore{
                     print(jsonString)
                 }
             */
+            
+            /*
             if let jsonData = data{
                 do{
                     let jsonObject: AnyObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as AnyObject
@@ -32,6 +34,12 @@ class PhotosStore{
             }else {
                 print("Unexpected error with the request")
             }
+            
+            */
+            
+            let result = FlickrAPI.photosFromJSONData(data: data!)
+            completion(result)
+             
         }
         task.resume()
     }
