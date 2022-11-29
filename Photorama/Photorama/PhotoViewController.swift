@@ -37,7 +37,7 @@ class PhotoViewController: UIViewController {
             case let .Failure(error):
                 print("Error fetching recent photos: \(error)")
             }
-        })
+        }) 
     }
 }
 

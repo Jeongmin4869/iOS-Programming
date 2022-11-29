@@ -1,4 +1,13 @@
-import Foundation
+import UIKit
+
+enum ImageResult{
+    case Success(UIImage)
+    case Failure(Swift.Error)
+}
+enum PhotoError: Swift.Error{
+    case ImageCreationError
+}
+
 
 class PhotosStore{
     
@@ -6,6 +15,26 @@ class PhotosStore{
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
+    
+    func fetchImageForPhoto(photo: Photo, completion: @escaping(ImageResult)->Void){
+        let photoURL = photo.remoteURL
+        let request = URLRequest(url: photoURL)
+        
+        let task = session.dataTask(with: request){
+            (data, response, error) -> Void in
+            if let imageData = data {
+                if let image = UIImage(data: imageData){
+                    completion(ImageResult.Success(image))
+                }else {
+                    completion(ImageResult.Failure(PhotoError.ImageCreationError))
+                }
+            }else {
+                completion(ImageResult.Failure(error!))
+            }
+        }
+        task.resume()
+    }
+    
     
     func fetchRecentPhotos(completion: @escaping (PhotosResult) -> Void){
         let url = FlickrAPI.recentPhotosURL()
@@ -34,7 +63,6 @@ class PhotosStore{
             }else {
                 print("Unexpected error with the request")
             }
-            
             */
             
             let result = FlickrAPI.photosFromJSONData(data: data!)
