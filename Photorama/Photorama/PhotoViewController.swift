@@ -25,7 +25,7 @@ class PhotoViewController: UIViewController {
                         (imageResult) -> Void in
                         switch imageResult{
                         case let .Success(image):
-                            // self.imageView.image = image
+                            // self.imageView.image = image // 서브스레드 실행. 서브스레드는 UI를 건들수 없어 에러
                             OperationQueue.main.addOperation{ // 메인 스레드에의해 실행되는 부분. 
                                 self.imageView.image = image
                             }

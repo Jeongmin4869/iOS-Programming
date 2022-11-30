@@ -8,7 +8,7 @@ class Photo {
     let dateTaken: Date
     var image: UIImage?
     
-    init(title: String, remoteURL: URL, photoID: String, dateTaken: Date, image: UIImage? = nil) {
+    init(title: String, remoteURL: URL, photoID: String, dateTaken: Date) {
         self.title = title
         self.remoteURL = remoteURL
         self.photoID = photoID

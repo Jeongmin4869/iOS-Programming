@@ -54,12 +54,12 @@ class PhotosStore{
             if let jsonData = data{
                 do{
                     let jsonObject: AnyObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as AnyObject
-                    print(jsonData)
+                    print(jsonObject)
                 }catch let error{
                     print("Error creating JSON object: \(error)")
                 }
             }else if let requestError = error {
-                print("Error : fetchibgn recdent photos : \(requestError)")
+                print("Error : fetching recent photos : \(requestError)")
             }else {
                 print("Unexpected error with the request")
             }

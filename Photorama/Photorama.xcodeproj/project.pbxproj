@@ -16,7 +16,6 @@
 		A13871362926703400D89A19 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13871352926703400D89A19 /* FlickrAPI.swift */; };
 		A13871382929030B00D89A19 /* PhotosStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13871372929030B00D89A19 /* PhotosStore.swift */; };
 		A138713A292F996D00D89A19 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1387139292F996D00D89A19 /* Photo.swift */; };
-		A19C80E62931B534003E1D88 /* PhotosResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80E52931B534003E1D88 /* PhotosResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		A13871352926703400D89A19 /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		A13871372929030B00D89A19 /* PhotosStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStore.swift; sourceTree = "<group>"; };
 		A1387139292F996D00D89A19 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		A19C80E52931B534003E1D88 /* PhotosResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 				A13871352926703400D89A19 /* FlickrAPI.swift */,
 				A13871372929030B00D89A19 /* PhotosStore.swift */,
 				A1387139292F996D00D89A19 /* Photo.swift */,
-				A19C80E52931B534003E1D88 /* PhotosResult.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -156,7 +153,6 @@
 				A13871382929030B00D89A19 /* PhotosStore.swift in Sources */,
 				A138712429266B7000D89A19 /* SceneDelegate.swift in Sources */,
 				A13871362926703400D89A19 /* FlickrAPI.swift in Sources */,
-				A19C80E62931B534003E1D88 /* PhotosResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

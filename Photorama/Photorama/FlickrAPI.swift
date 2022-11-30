@@ -12,6 +12,16 @@ enum Method: String{
     case RecentPhotos = "flickr.photos.getRecent"
 }
 
+enum PhotosResult{
+    case Success([Photo])
+    case Failure(Swift.Error)
+}
+
+enum FlickrError: Swift.Error{
+    case InvalidJSONData
+}
+
+
 struct FlickrAPI{
     private static let baseURLString = "https://api.flickr.com/services/rest/"
     private static let APIKey = "b9afcfd5008c8367a9c57870cc70108b"
@@ -48,7 +58,7 @@ struct FlickrAPI{
         guard
             let photoID = json["id"] as? String,
             let title = json["title"] as? String,
-            let dateString = json["dateTaken"] as? String,
+            let dateString = json["datetaken"] as? String,
             let photoURLString = json["url_h"] as? String,
             let url = URL(string: photoURLString),
             let dateTaken = dateFormattehr.date(from: dateString)
