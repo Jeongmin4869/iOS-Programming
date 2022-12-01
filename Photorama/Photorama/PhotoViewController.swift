@@ -9,14 +9,18 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var collectionView = UICollectionView!
     var photoStore: PhotosStore!
+    var photoDataSource: PhotoDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        collectionView.dataSource = photoDataSource
         photoStore.fetchRecentPhotos(completion: { // 스레드에 의해 실행된다.
             (photosResult) -> Void in
+            /*
             switch photosResult {
             case let .Success(photos):
                 print("Successfully found \(photos.count) recent photos")
@@ -36,6 +40,18 @@ class PhotoViewController: UIViewController {
                 }
             case let .Failure(error):
                 print("Error fetching recent photos: \(error)")
+            }
+             */
+            OperationQueue.main.addOperation{
+                switch photosResult{
+                case let .Success(photos):
+                    print("Successfully found \(photos.count) recent photos")
+                    self.photoDataSource.photos = photos
+                case let .Failure(error):
+                    print("Error fetching recent photos: \(error)")
+                    self.photoDataSource.photos.removeAll()
+                }
+                self.collectionView.reloadSections(IndexSet(integer: 0))
             }
         }) 
     }
