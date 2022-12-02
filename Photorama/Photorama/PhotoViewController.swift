@@ -9,13 +9,13 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
-    @IBOutlet var collectionView = UICollectionView!
+    @IBOutlet var collectionView : UICollectionView!
     var photoStore: PhotosStore!
-    var photoDataSource: PhotoDataSource()
+    var photoDataSource = PhotoDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         
         collectionView.dataSource = photoDataSource
         photoStore.fetchRecentPhotos(completion: { // 스레드에 의해 실행된다.
