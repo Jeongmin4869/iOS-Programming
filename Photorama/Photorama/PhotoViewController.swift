@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet var collectionView : UICollectionView!
     var photoStore: PhotosStore!
@@ -18,6 +18,9 @@ class PhotoViewController: UIViewController {
 
         
         collectionView.dataSource = photoDataSource
+        collectionView.delegate = self
+        
+        
         photoStore.fetchRecentPhotos(completion: { // 스레드에 의해 실행된다.
             (photosResult) -> Void in
             /*
@@ -55,5 +58,33 @@ class PhotoViewController: UIViewController {
             }
         }) 
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let photo = photoDataSource.photos[indexPath.row]
+        photoStore.fetchImageForPhoto(photo: photo){
+            (result) -> Void in
+            
+            OperationQueue.main.addOperation{
+                switch result{
+                    case let .Success(image):
+                        photo.image = image
+                    case let .Failure(error):
+                        photo.image = nil
+                }
+                OperationQueue.main.addOperation{
+                    let photoIndex = self.photoDataSource.photos.index(of: photo)
+                    let photoIndexPath = IndexPath(item: photoIndex!, section: 0)
+                    
+                    if let cell = self.collectionView.cellForItem(at: photoIndexPath) as? PhotoCollectionViewCell{
+                        cell.updateWithImage(image: photo.image)
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
+    
 }
 

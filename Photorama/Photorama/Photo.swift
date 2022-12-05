@@ -1,6 +1,6 @@
 import UIKit
 
-class Photo {
+class Photo : Equatable{
     
     let title: String
     let remoteURL: URL
@@ -13,6 +13,10 @@ class Photo {
         self.remoteURL = remoteURL
         self.photoID = photoID
         self.dateTaken = dateTaken
+    }
+    
+    static func == (lhs:Photo, rhs:Photo) -> Bool{
+        return lhs.photoID == rhs.photoID
     }
     
 }
