@@ -18,6 +18,7 @@
 		A138713A292F996D00D89A19 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1387139292F996D00D89A19 /* Photo.swift */; };
 		A19C80E82938D740003E1D88 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80E72938D740003E1D88 /* PhotoDataSource.swift */; };
 		A19C80EA293A2360003E1D88 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80E9293A2360003E1D88 /* PhotoCollectionViewCell.swift */; };
+		A19C80EC293F719D003E1D88 /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80EB293F719D003E1D88 /* PhotoInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A1387139292F996D00D89A19 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A19C80E72938D740003E1D88 /* PhotoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
 		A19C80E9293A2360003E1D88 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		A19C80EB293F719D003E1D88 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				A1387139292F996D00D89A19 /* Photo.swift */,
 				A19C80E72938D740003E1D88 /* PhotoDataSource.swift */,
 				A19C80E9293A2360003E1D88 /* PhotoCollectionViewCell.swift */,
+				A19C80EB293F719D003E1D88 /* PhotoInfoViewController.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				A13871382929030B00D89A19 /* PhotosStore.swift in Sources */,
 				A138712429266B7000D89A19 /* SceneDelegate.swift in Sources */,
 				A13871362926703400D89A19 /* FlickrAPI.swift in Sources */,
+				A19C80EC293F719D003E1D88 /* PhotoInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

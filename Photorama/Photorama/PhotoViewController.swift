@@ -81,10 +81,18 @@ class PhotoViewController: UIViewController, UICollectionViewDelegate {
                 }
             }
         }
-        
-        
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPhoto" {
+            // 여러개가 선택된 경우 첫번째 것을 선택한다.
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first{
+                let photo = photoDataSource.photos[selectedIndexPath.row]
+                let destination = segue.destination as! PhotoInfoViewController
+                destination.photoStore = photoStore
+                destination.photo = photo
+            }
+        }
+    }
 }
 
