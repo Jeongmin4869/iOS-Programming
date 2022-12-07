@@ -18,7 +18,7 @@ class PhotoInfoViewController: UIViewController {
             (imageResult) -> Void in
             switch imageResult {
             case let .Success(imagee):
-                OperationQueue.main.addOperation{
+                OperationQueue.main.addOperation{ //UIImageView의 image 를 변경하는 작업, 즉 UI 를 변경하는 작업은 다시 main thread
                     self.imageView.image = imagee
                 }
             case let .Failure(error):
