@@ -22,5 +22,4 @@ public class Photo: NSManagedObject {
         remoteURL = NSURL() as URL
         dateTaken = Date()
     }
-    
 }

@@ -21,6 +21,7 @@
 		A19C80F22940B528003E1D88 /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A19C80F02940B528003E1D88 /* Photorama.xcdatamodeld */; };
 		A19C80FB2942214D003E1D88 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80F92942214D003E1D88 /* Photo+CoreDataClass.swift */; };
 		A19C80FC2942214D003E1D88 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80FA2942214D003E1D88 /* Photo+CoreDataProperties.swift */; };
+		A19C81002943658A003E1D88 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80FF2943658A003E1D88 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A19C80F12940B528003E1D88 /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
 		A19C80F92942214D003E1D88 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A19C80FA2942214D003E1D88 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A19C80FF2943658A003E1D88 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				A19C80E9293A2360003E1D88 /* PhotoCollectionViewCell.swift */,
 				A19C80EB293F719D003E1D88 /* PhotoInfoViewController.swift */,
 				A19C80F02940B528003E1D88 /* Photorama.xcdatamodeld */,
+				A19C80FF2943658A003E1D88 /* CoreDataStack.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				A19C80FB2942214D003E1D88 /* Photo+CoreDataClass.swift in Sources */,
 				A19C80EA293A2360003E1D88 /* PhotoCollectionViewCell.swift in Sources */,
 				A19C80E82938D740003E1D88 /* PhotoDataSource.swift in Sources */,
+				A19C81002943658A003E1D88 /* CoreDataStack.swift in Sources */,
 				A138712629266B7000D89A19 /* PhotoViewController.swift in Sources */,
 				A138712229266B7000D89A19 /* AppDelegate.swift in Sources */,
 				A19C80F22940B528003E1D88 /* Photorama.xcdatamodeld in Sources */,
