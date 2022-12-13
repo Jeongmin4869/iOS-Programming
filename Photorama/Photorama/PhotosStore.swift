@@ -67,11 +67,25 @@ class PhotosStore{
             }
             */
             
-            let result = FlickrAPI.photosFromJSONData(data: data!)
+            //let result = FlickrAPI.photosFromJSONData(data: data!, context: self.coreDataStack.mainQueueContext)
+            var result = self.processRecentPhotosRequest(data: data, error: error)
+            if case let .Success(Photo) = result {
+                do{
+                    try self.coreDataStack.saveChanges()
+                }catch let error{
+                    result = .Failure(error)
+                }
+            }
             completion(result)
              
         }
         task.resume()
     }
     
+    func processRecentPhotosRequest(data:Data?, error:Error?) -> PhotosResult{
+        guard let jsonData = data else {
+            return .Failure(error!)
+        }
+        return FlickrAPI.photosFromJSONData(data: data!, context: self.coreDataStack.mainQueueContext)
+    }
 }

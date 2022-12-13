@@ -78,7 +78,7 @@ struct FlickrAPI{
         return photo
     }
     
-    static func photosFromJSONData(data: Data) -> PhotosResult{
+    static func photosFromJSONData(data: Data, context:NSManagedObjectContext) -> PhotosResult{
         do{
             let jsonObject: AnyObject = try JSONSerialization.jsonObject(with: data, options: []) as! AnyObject
             guard
@@ -90,7 +90,7 @@ struct FlickrAPI{
             
             var finalPhotos = [Photo]()
             for photoJSON in photosArray {
-                if let photo = photoFromJSONObject(json: photoJSON){
+                if let photo = photoFromJSONObject(json: photoJSON, context: context){
                     finalPhotos.append(photo)
                 }
             }

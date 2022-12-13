@@ -31,5 +31,21 @@ class CoreDataStack{
         return managedObjectContext
     }()
     
+    func saveChanges() throws {
+        var error: Swift.Error?
+        mainQueueContext.performAndWait(){
+            if(self.mainQueueContext.hasChanges){
+                do{
+                    try self.mainQueueContext.save()
+                }catch let saveError{
+                    error = saveError
+                }
+            }
+        }
+        if let error = error{
+            throw error
+        }
+    }
+    
 }
 
