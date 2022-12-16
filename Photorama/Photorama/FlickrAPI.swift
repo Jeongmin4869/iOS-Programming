@@ -55,6 +55,7 @@ struct FlickrAPI{
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter
     }()
+    
     private static func photoFromJSONObject(json: [String: AnyObject], context: NSManagedObjectContext) -> Photo? {
         guard
             let photoID = json["id"] as? String,
@@ -66,6 +67,18 @@ struct FlickrAPI{
         else {
             return nil
         }
+        
+        //동일한 ID의 사진이 이미 있을 경우 저장하지 않고 CoreData에서 읽은것을 리턴한다.
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
+        fetchRequest.predicate = NSPredicate(format:"photoID == \(photoID)")
+        var fetchedPhotos: [Photo]!
+        context.performAndWait(){
+            fetchedPhotos = try! context.fetch(fetchRequest) as! [Photo]
+        }
+        if fetchedPhotos.count > 0 {
+            return fetchedPhotos.first
+        }
+        
         //return Photo(title: title, remoteURL: url, photoID: photoID, dateTaken: dateTaken)
         var photo: Photo!
         context.performAndWait(){
