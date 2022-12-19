@@ -22,6 +22,7 @@
 		A19C80FB2942214D003E1D88 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80F92942214D003E1D88 /* Photo+CoreDataClass.swift */; };
 		A19C80FC2942214D003E1D88 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C80FA2942214D003E1D88 /* Photo+CoreDataProperties.swift */; };
 		A19C810229474B89003E1D88 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C810129474B89003E1D88 /* CoreDataStack.swift */; };
+		A19C8124295091D8003E1D88 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C8123295091D8003E1D88 /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A19C80F92942214D003E1D88 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A19C80FA2942214D003E1D88 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A19C810129474B89003E1D88 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		A19C8123295091D8003E1D88 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageStore.swift; path = ../../Homepwner/Homepwner/ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				A19C80EB293F719D003E1D88 /* PhotoInfoViewController.swift */,
 				A19C80F02940B528003E1D88 /* Photorama.xcdatamodeld */,
 				A19C810129474B89003E1D88 /* CoreDataStack.swift */,
+				A19C8123295091D8003E1D88 /* ImageStore.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				A138712229266B7000D89A19 /* AppDelegate.swift in Sources */,
 				A19C80F22940B528003E1D88 /* Photorama.xcdatamodeld in Sources */,
 				A13871382929030B00D89A19 /* PhotosStore.swift in Sources */,
+				A19C8124295091D8003E1D88 /* ImageStore.swift in Sources */,
 				A138712429266B7000D89A19 /* SceneDelegate.swift in Sources */,
 				A19C80FC2942214D003E1D88 /* Photo+CoreDataProperties.swift in Sources */,
 				A13871362926703400D89A19 /* FlickrAPI.swift in Sources */,

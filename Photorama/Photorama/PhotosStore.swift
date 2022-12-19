@@ -19,12 +19,32 @@ class PhotosStore{
         return URLSession(configuration: config)
     }()
     
+
+    let imageStore = ImageStore()
+    
     func fetchImageForPhoto(photo: Photo, completion: @escaping(ImageResult)->Void){
+        
+        //먼저 이미 저장되어있는지 체크
+        let photoKey = photo.photoKey
+        if let image = imageStore.imageForKey(key: photoKey){
+            photo.image = image
+            completion(.Success(image))
+            return
+        }
+        
         let photoURL = photo.remoteURL
         let request = URLRequest(url: photoURL)
-        
         let task = session.dataTask(with: request){
             (data, response, error) -> Void in
+            
+            let result = self.processRecentPhotosRequest(data: data, error: error)
+            if case let .Success(image) = result {
+                photo.image = image
+                self.imageStore.setImage(image: image, forKey: photoKey)
+            }
+            completion(result)
+            
+            /*
             if let imageData = data {
                 if let image = UIImage(data: imageData){
                     completion(ImageResult.Success(image))
@@ -34,6 +54,7 @@ class PhotosStore{
             }else {
                 completion(ImageResult.Failure(error!))
             }
+            */
         }
         task.resume()
     }
@@ -109,7 +130,7 @@ class PhotosStore{
         fetchRequest.sortDescriptors = sortDescriptors
         
         let mainQueueContext = self.coreDataStack.mainQueueContext
-        var mainQueuePhotos = [Photo]?
+        var mainQueuePhotos : [Photo]?
         var fetchRequestError: Swift.Error?
         
         mainQueueContext.performAndWait(){
