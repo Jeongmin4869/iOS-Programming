@@ -37,7 +37,7 @@ class PhotosStore{
         let task = session.dataTask(with: request){
             (data, response, error) -> Void in
             
-            let result = self.processRecentPhotosRequest(data: data, error: error)
+            let result = self.processimageRequest(data: data, error: error)
             if case let .Success(image) = result {
                 photo.image = image
                 self.imageStore.setImage(image: image, forKey: photoKey)
@@ -123,6 +123,16 @@ class PhotosStore{
         }
         return FlickrAPI.photosFromJSONData(data: data!, context: self.coreDataStack.mainQueueContext)
     }
+    
+    
+    func processimageRequest(data:Data?, error:Error?) -> ImageResult{
+        guard let jsonData = data else {
+            return .Failure(error!)
+        }
+        return FlickrAPI.photosFromJSONData(data: data!, context: self.coreDataStack.mainQueueContext)
+ 
+    }
+    
     
     func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors:[NSSortDescriptor]? = nil) throws -> [Photo]{
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")

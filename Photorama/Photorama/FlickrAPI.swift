@@ -117,4 +117,31 @@ struct FlickrAPI{
             return .Failure(error)
         }
     }
+    
+    static func imagesFromJSONData(data: Data, context:NSManagedObjectContext) -> ImageResult{
+        do{
+            let jsonObject: AnyObject = try JSONSerialization.jsonObject(with: data, options: []) as! AnyObject
+            guard
+                let jsonDictionary = jsonObject as? [NSObject: AnyObject],
+                let photos = jsonDictionary["photos" as NSString] as? [String: AnyObject],
+                let photosArray = photos["photo"] as? [[String:AnyObject]] else {
+                return .Failure(FlickrError.InvalidJSONData)
+            }
+            
+            var finalPhotos = [Photo]()
+            for photoJSON in photosArray {
+                if let photo = photoFromJSONObject(json: photoJSON, context: context){
+                    finalPhotos.append(photo)
+                }
+            }
+            
+            if finalPhotos.count == 0 && photosArray.count > 0 {
+                return.Failure(FlickrError.InvalidJSONData)
+            }
+            
+            return .Success(photo.image)
+        }catch let error {
+            return .Failure(error)
+        }
+    }
 }
