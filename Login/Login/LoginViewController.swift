@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, DatabaseDelegate  {
+class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, DatabaseDelegate  {
     
     func onChange(groupDatabaseStr: String) {
         groupDatabase = databaseBroker.loadGroupDatabase()
