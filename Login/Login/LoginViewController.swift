@@ -7,7 +7,17 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, DatabaseDelegate  {
+class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate DatabaseDelegate  {
+    
+    @IBOutlet weak var button: UIButton! {
+        didSet{
+            button.isEnabled = false
+            button.setTitleColor(UIColor.gray, for: .normal)
+        }
+    }
+    @IBOutlet weak var groupPickerView: UIPickerView!
+    @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
     
     func onChange(groupDatabaseStr: String) {
         groupDatabase = databaseBroker.loadGroupDatabase()
@@ -33,20 +43,19 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var groupDatabase: [String]!
     var databaseBroker: DatabaseBroker!
     
-    @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var groupPickerView: UIPickerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        button.isEnabled = false
-        
         databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
         databaseBroker.setGroupDataDelegate(dataDelegate: self)
     }
 
     @IBAction func onButtonClicked(_ sender: Any) {
+        /*
         let str = groupDatabase[groupPickerView.selectedRow(inComponent: 0)]+"가 선택되었습니다"
         Message.information(parent: self, title: "확인", message: str)
+        */
     }
     
 }
