@@ -48,6 +48,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mR6-na-5Nc">
                                 <rect key="frame" x="244.66666666666663" y="263" width="51" height="31"/>
+                                <connections>
+                                    <action selector="pressToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="m5G-CK-EjI"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tRz-fH-gSH">
                                 <rect key="frame" x="186.66666666666663" y="427" width="165" height="34"/>
@@ -68,7 +71,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdP-ZE-aaj">
-                                <rect key="frame" x="178.66666666666663" y="321" width="183" height="91"/>
+                                <rect key="frame" x="179" y="321" width="183" height="91"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="183" id="XiM-9b-UKb"/>
                                     <constraint firstAttribute="height" constant="91" id="v1D-0n-omW"/>
@@ -125,6 +128,7 @@
                         <outlet property="groupPickerView" destination="YdP-ZE-aaj" id="Ff2-bz-Jro"/>
                         <outlet property="idTextField" destination="tRz-fH-gSH" id="dEB-ag-ViZ"/>
                         <outlet property="pwTextField" destination="Geh-Kq-H03" id="XEb-fK-dcC"/>
+                        <outlet property="toggle" destination="mR6-na-5Nc" id="gMt-L5-Of1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -19,6 +19,9 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var groupPickerView: UIPickerView!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
+
+    @IBOutlet weak var toggle: UISwitch!
+    
     
     func onChange(groupDatabaseStr: String) {
         groupDatabase = databaseBroker.loadGroupDatabase()
@@ -74,5 +77,15 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             }
         }
     }
+    
+    @IBAction func pressToggle(_ sender: Any) {
+        if toggle.isOn{
+            //admin
+        }
+        else {
+            //user
+        }
+    }
+    
 }
 
