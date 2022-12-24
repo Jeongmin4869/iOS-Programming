@@ -7,14 +7,15 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate DatabaseDelegate  {
+class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, DatabaseDelegate  {
     
     @IBOutlet weak var button: UIButton! {
         didSet{
-            button.isEnabled = false
             button.setTitleColor(UIColor.gray, for: .normal)
+            button.isEnabled = false
         }
     }
+    
     @IBOutlet weak var groupPickerView: UIPickerView!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
@@ -25,7 +26,7 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         groupPickerView.delegate = self
         groupPickerView.dataSource = self
         groupPickerView.reloadComponent(0)
-        button.isEnabled = true
+        //button.isEnabled = true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -47,16 +48,31 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.idTextField.delegate = self
+        self.pwTextField.delegate = self
+        
         databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
         databaseBroker.setGroupDataDelegate(dataDelegate: self)
     }
 
     @IBAction func onButtonClicked(_ sender: Any) {
-        /*
-        let str = groupDatabase[groupPickerView.selectedRow(inComponent: 0)]+"가 선택되었습니다"
-        Message.information(parent: self, title: "확인", message: str)
-        */
+        if pwTextField.text?.isEmpty == true{
+            Message.information(parent: self, title: "Caution", message: "Enter your password.")
+        }
     }
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == idTextField{
+            if textField.text?.isEmpty == true{
+                button.setTitleColor(UIColor.gray, for: .normal)
+                button.isEnabled = false
+            }
+            else {
+                button.setTitleColor(UIColor.blue, for: .normal)
+                button.isEnabled = true
+            }
+        }
+    }
 }
 
