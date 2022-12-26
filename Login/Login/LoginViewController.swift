@@ -15,13 +15,20 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             button.isEnabled = false
         }
     }
-    
+    @IBOutlet weak var resetPwButton: UIButton!
     @IBOutlet weak var groupPickerView: UIPickerView!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
 
-    @IBOutlet weak var toggle: UISwitch!
+    @IBOutlet weak var toggle: UISwitch!{
+        didSet{
+            toggle.isOn = false
+        }
+    }
     
+    var groupDatabase: [String]!
+    var userDatabase: [User]!
+    var databaseBroker: DatabaseBroker!
     
     func onChange(groupDatabaseStr: String) {
         groupDatabase = databaseBroker.loadGroupDatabase()
@@ -31,6 +38,12 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         groupPickerView.reloadComponent(0)
         //button.isEnabled = true
     }
+    
+    
+    func onChange(userDatabaseStr: String) {
+        userDatabase = databaseBroker.loadUserDatabase()
+    }
+     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -43,10 +56,6 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return groupDatabase[row]
     }
-    
-    var groupDatabase: [String]!
-    var databaseBroker: DatabaseBroker!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +72,21 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         if pwTextField.text?.isEmpty == true{
             Message.information(parent: self, title: "Caution", message: "Enter your password.")
         }
+        
+        if toggle.isEnabled == true {
+            // root
+        }
+        else {
+            // user
+        }
+        
+        
     }
+    
+    @IBAction func resetPwButtonClicked(_ sender: Any){
+        Message.information(parent: self, title: "Caution", message: ".")
+    }
+    
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField == idTextField{
@@ -79,11 +102,18 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     
     @IBAction func pressToggle(_ sender: Any) {
+        pwTextField.text = ""
         if toggle.isOn{
-            //admin
+            //root
+            idTextField.text = "root"
+            idTextField.isEnabled = false;
+            button.isEnabled = true;
         }
         else {
             //user
+            idTextField.text = ""
+            idTextField.isEnabled = true;
+            button.isEnabled = false;
         }
     }
     
