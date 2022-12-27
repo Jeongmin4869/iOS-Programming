@@ -10,8 +10,8 @@ import Foundation
 
 
 class FilebaseBroker: DatabaseObject, DatabaseBroker {
-    static var  defaultGroups: String = "테니스장@@@@제1스터디룸@@@@제2스터디룸@@@@세미나실"
-    static var  defaultUsers: String = "root####root####@@@@gdhong####gdhong####테니스장"
+    static var  defaultGroups: String = "TennisCourt@@@@MeetingRoom@@@@StudyRoom@@@@SeminarRoom"
+    static var  defaultUsers: String = "root####root####@@@@gdhong####gdhong####TennisCourt"
     static var  defaultSettings: String = "maxContinueBookingSlots:2####maxTotalBookingSlots:4"
     
     override init(){

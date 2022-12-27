@@ -80,22 +80,41 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             Message.information(parent: self, title: "Caution", message: "Enter your password.")
         }
         
-        var gourp = groupDatabase[groupPickerView.selectedRow(inComponent: 0)]
-        
+        let gourp = groupDatabase[groupPickerView.selectedRow(inComponent: 0)]
+    
         for userdata in userDatabase {
+            
+            //admin계정으로 로그인 할 수 없음
+            if userdata.name == "root" && toggle.isOn == false{
+                Message.information(parent: self, title: "Caution", message: " Not permitted to log in.")
+            }
+            
+            //사용자 유무 확인
+            if userdata.isMe(name: idTextField.text!) == false {
+                continue
+            }
+            
             //로그인이 성공했을 경우
             if userdata.isMe(name: idTextField.text! , password: pwTextField.text! , group: gourp) == true{
                 Message.information(parent: self, title: "", message: "Signed in successfully.")
             }
             //로그인이 실패했을 경우
             else {
-                //for 문을 돌기 때문에 root가 아닐경우 항상 failed
-                Message.information(parent: self, title: "Failed", message: "Invalid password. Please try again.")
-                //실패원인1. 사용자없음
-                //실패원인2. 비밀번호 불일치
-                //실패원인3. 소속 불일치
+                //실패원인1. 비밀번호 불일치
+                if userdata.isMe(password: pwTextField.text!) == false{
+                    Message.information(parent: self, title: "Failed", message: "Invalid password. Please try again.")
+                }
+                //실패원인2. 소속 불일치
+                if userdata.isMe(name: idTextField.text!, group: gourp) == false{
+                    Message.information(parent: self, title: "Failed", message: "Invalid group. Please try again.")
+                }
+                
             }
         }
+        
+        //실패원인3. 사용자없음
+        Message.information(parent: self, title: "Failed", message: "ID does not exist. Please try again.")
+        
     }
     
     @IBAction func resetPwButtonClicked(_ sender: Any){
