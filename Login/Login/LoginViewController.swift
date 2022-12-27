@@ -17,7 +17,12 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     @IBOutlet weak var resetPwButton: UIButton!
     @IBOutlet weak var groupPickerView: UIPickerView!
-    @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!{
+        didSet{
+            //문자 입력이 들어오면 바로 이전값은 hide(*)상태로 변경
+            pwTextField.isSecureTextEntry = true
+        }
+    }
     @IBOutlet weak var idTextField: UITextField!
 
     @IBOutlet weak var toggle: UISwitch!{
@@ -42,6 +47,7 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     func onChange(userDatabaseStr: String) {
         userDatabase = databaseBroker.loadUserDatabase()
+        
     }
      
     
@@ -66,6 +72,7 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
         databaseBroker.setGroupDataDelegate(dataDelegate: self)
+        databaseBroker.setUserDataDelegate(dataDelegate: self)
     }
 
     @IBAction func onButtonClicked(_ sender: Any) {
@@ -73,14 +80,22 @@ class LoginViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             Message.information(parent: self, title: "Caution", message: "Enter your password.")
         }
         
-        if toggle.isEnabled == true {
-            // root
-        }
-        else {
-            // user
-        }
+        var gourp = groupDatabase[groupPickerView.selectedRow(inComponent: 0)]
         
-        
+        for userdata in userDatabase {
+            //로그인이 성공했을 경우
+            if userdata.isMe(name: idTextField.text! , password: pwTextField.text! , group: gourp) == true{
+                Message.information(parent: self, title: "", message: "Signed in successfully.")
+            }
+            //로그인이 실패했을 경우
+            else {
+                //for 문을 돌기 때문에 root가 아닐경우 항상 failed
+                Message.information(parent: self, title: "Failed", message: "Invalid password. Please try again.")
+                //실패원인1. 사용자없음
+                //실패원인2. 비밀번호 불일치
+                //실패원인3. 소속 불일치
+            }
+        }
     }
     
     @IBAction func resetPwButtonClicked(_ sender: Any){
