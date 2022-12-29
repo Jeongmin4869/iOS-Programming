@@ -128,10 +128,10 @@ struct FlickrAPI{
                 return .Failure(FlickrError.InvalidJSONData)
             }
             
-            var finalPhotos = [Photo]()
+            var finalPhotos = [UIImage]()
             for photoJSON in photosArray {
                 if let photo = photoFromJSONObject(json: photoJSON, context: context){
-                    finalPhotos.append(photo)
+                    finalPhotos.append(photo.image!)
                 }
             }
             
@@ -139,7 +139,7 @@ struct FlickrAPI{
                 return.Failure(FlickrError.InvalidJSONData)
             }
             
-            return .Success(photo.image)
+            return .Suceess2(finalPhotos)
         }catch let error {
             return .Failure(error)
         }

@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 
 enum ImageResult{
+    case Suceess2([UIImage])
     case Success(UIImage)
     case Failure(Swift.Error)
 }
@@ -37,12 +38,26 @@ class PhotosStore{
         let task = session.dataTask(with: request){
             (data, response, error) -> Void in
             
+            // image for key ??
             let result = self.processimageRequest(data: data, error: error)
             if case let .Success(image) = result {
                 photo.image = image
                 self.imageStore.setImage(image: image, forKey: photoKey)
             }
             completion(result)
+            
+            /*
+             var result = self.processRecentPhotosRequest(data: data, error: error)
+                     if case let .Success(photos) = result{
+                         do{
+                             try self.coreDataStack.saveChanges()
+                         }catch let error{
+                             result = .Failure(error)
+                         }
+                     }
+                     completion(result)
+             
+             */
             
             /*
             if let imageData = data {
@@ -129,7 +144,7 @@ class PhotosStore{
         guard let jsonData = data else {
             return .Failure(error!)
         }
-        return FlickrAPI.photosFromJSONData(data: data!, context: self.coreDataStack.mainQueueContext)
+        return FlickrAPI.imagesFromJSONData(data: data!, context: self.coreDataStack.mainQueueContext)
  
     }
     
