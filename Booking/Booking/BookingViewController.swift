@@ -11,58 +11,80 @@ class BookingViewController: UIViewController {
 
     var userName: String! = "gdhong"
     var userGroup: String! = "TennisCourt"
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.spacing = 8
-        stackView.backgroundColor = UIColor.gray
-        return stackView
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         //세로버전
-        view.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-        stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
-        stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35).isActive = true
         
-        let miniStackView = UIStackView()
-        miniStackView.axis = .horizontal
-        miniStackView.distribution = .fillEqually
-        miniStackView.alignment = .fill
-        miniStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        miniStackView.spacing = 4
-        miniStackView.translatesAutoresizingMaskIntoConstraints = false
-        miniStackView.backgroundColor = UIColor.cyan
+        let baseStackView: UIStackView = {
+            let baseStackView = UIStackView()
+            
+            baseStackView.translatesAutoresizingMaskIntoConstraints = false
+            baseStackView.axis = .horizontal
+            baseStackView.alignment = .fill
+            baseStackView.distribution = .fillEqually
+            baseStackView.spacing = 8
+            baseStackView.backgroundColor = UIColor.gray
+            return baseStackView
+        }()
         
-        let timeView = UIView()
-        timeView.layer.borderWidth = 2
-        //timeView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        timeView.translatesAutoresizingMaskIntoConstraints = false
-        timeView.layer.borderColor = UIColor.black.cgColor
+        view.addSubview(baseStackView)
+        baseStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+        baseStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
+        baseStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
+        baseStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35).isActive = true
         
-        let nameView = UIView()
-        nameView.layer.borderWidth = 2
-        //nameView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        nameView.translatesAutoresizingMaskIntoConstraints = false
-        nameView.layer.borderColor = UIColor.black.cgColor
-        //stackView에 View추가
-        miniStackView.addArrangedSubview(timeView)
-        miniStackView.addArrangedSubview(nameView)
+        let outerStackView = UIStackView()
+        outerStackView.translatesAutoresizingMaskIntoConstraints = false
+        outerStackView.axis = .vertical
+        outerStackView.alignment = .fill
+        outerStackView.distribution = .fillEqually
+        outerStackView.spacing = 8
+        outerStackView.backgroundColor = UIColor.gray
         
-        stackView.addArrangedSubview(miniStackView)
-        stackView.addArrangedSubview(miniStackView)
-        stackView.addArrangedSubview(miniStackView)
+        baseStackView.addArrangedSubview(outerStackView)
+        
+        for i in 0..<10 {
+            let innerStackView = UIStackView()
+            innerStackView.axis = .horizontal
+            //innerStackView.alignment = .fill
+            innerStackView.distribution = .fillEqually
+            //innerStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            innerStackView.spacing = 4
+            innerStackView.translatesAutoresizingMaskIntoConstraints = false
+            innerStackView.backgroundColor = UIColor.cyan
+            
+            outerStackView.addArrangedSubview(innerStackView)
+            
+            let leftLabel = UILabel()
+            leftLabel.layer.borderWidth = 2
+            //timeView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            leftLabel.translatesAutoresizingMaskIntoConstraints = false
+            leftLabel.layer.borderColor = UIColor.black.cgColor
+            
+            let rightLabel = UILabel()
+            rightLabel.layer.borderWidth = 2
+            //nameView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            rightLabel.translatesAutoresizingMaskIntoConstraints = false
+            rightLabel.layer.borderColor = UIColor.black.cgColor
+            //stackView에 View추가
+            innerStackView.addArrangedSubview(leftLabel)
+            innerStackView.addArrangedSubview(rightLabel)
+        }
+        
     }
 
+    //세로모드
+    func drawBase_1(){
+        
+    }
+    
+    //가로모드
+    func drawBase_2(){
+        
+    }
 
 }
 
