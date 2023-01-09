@@ -15,7 +15,28 @@ class BookingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        
+        drawBase_1()
+        
+        /*
+        
+        if UIDevice.current.orientation.isPortrait {
+            //세로모드
+            for view in self.view.subviews{
+                view.removeFromSuperview()
+            }
+            drawBase_1()
+        }else {
+            //가로모드
+            for view in self.view.subviews{
+                view.removeFromSuperview()
+            }
+            drawBase_2()
+        }
+         */
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isPortrait {
             //세로모드
             for view in self.view.subviews{
