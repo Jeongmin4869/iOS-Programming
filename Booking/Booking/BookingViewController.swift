@@ -95,23 +95,24 @@ class BookingViewController: UIViewController {
                 outerStackView.addArrangedSubview(innerStackView)
                 
                 let leftLabel = UILabel()
-                innerStackView.addArrangedSubview(leftLabel)
+                leftLabel.textAlignment = .center
                 leftLabel.layer.borderWidth = 2
                 leftLabel.textAlignment = .center
                 leftLabel.text = String(format: "%02d : %02d", j*i*30/60, j*30%60)
-                leftLabel.widthAnchor.constraint(equalTo: innerStackView.widthAnchor, multiplier: 0.4, constant: 0).isActive = true
-                //timeView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 leftLabel.translatesAutoresizingMaskIntoConstraints = false
                 leftLabel.layer.borderColor = UIColor.black.cgColor
+                innerStackView.addArrangedSubview(leftLabel)
+                leftLabel.widthAnchor.constraint(equalTo: innerStackView.widthAnchor, multiplier: 0.4, constant: 0).isActive = true
                 
                 let rightLabel = UILabel()
-                innerStackView.addArrangedSubview(rightLabel)
+                rightLabel.textAlignment = .center
                 rightLabel.layer.borderWidth = 2
-                //nameView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 rightLabel.translatesAutoresizingMaskIntoConstraints = false
                 rightLabel.layer.borderColor = UIColor.black.cgColor
-                //stackView에 View추가
-
+                innerStackView.addArrangedSubview(rightLabel)
+                
+                let tapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(tryBooking))
+                innerStackView.addGestureRecognizer(tapGestureRecognizer);
             }
         }
     }
@@ -155,30 +156,42 @@ class BookingViewController: UIViewController {
                 //innerStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 innerStackView.spacing = 4
                 innerStackView.translatesAutoresizingMaskIntoConstraints = false
+                innerStackView.isUserInteractionEnabled = true
                 
                 outerStackView.addArrangedSubview(innerStackView)
                 
                 let leftLabel = UILabel()
                 leftLabel.layer.borderWidth = 2
+                leftLabel.textAlignment = .center
                 //timeView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 leftLabel.translatesAutoresizingMaskIntoConstraints = false
                 leftLabel.layer.borderColor = UIColor.black.cgColor
                 
                 let rightLabel = UILabel()
+                rightLabel.textAlignment = .center
                 rightLabel.layer.borderWidth = 2
                 //nameView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 rightLabel.translatesAutoresizingMaskIntoConstraints = false
                 rightLabel.layer.borderColor = UIColor.black.cgColor
                 //stackView에 View추가
+                
                 innerStackView.addArrangedSubview(leftLabel)
                 innerStackView.addArrangedSubview(rightLabel)
-                
-                
                 
             }
         }
     }
 
+    @objc func tryBooking(gesture: UITapGestureRecognizer){
+        let innerView = gesture.view as! UIStackView
+        let label = (innerView.arrangedSubviews[1] as! UILabel)
+        if(label.text?.isEmpty == true){
+            label.text = "예약완료"
+        }
+        else {
+            label.text = "";
+        }
+    }
 
 }
 
