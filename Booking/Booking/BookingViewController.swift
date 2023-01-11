@@ -16,8 +16,18 @@ class BookingViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        drawBase_1()
-        
+
+
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if windowScene.interfaceOrientation.isPortrait {
+                drawBase_1()
+            }
+            else {
+                drawBase_2()
+            }
+            
+            
+        }
         /*
         
         if UIDevice.current.orientation.isPortrait {
@@ -63,7 +73,7 @@ class BookingViewController: UIViewController {
             baseStackView.axis = .horizontal
             baseStackView.alignment = .fill
             baseStackView.distribution = .fillEqually
-            baseStackView.spacing = 8
+            baseStackView.spacing = 4
             return baseStackView
         }()
         
@@ -79,11 +89,11 @@ class BookingViewController: UIViewController {
             outerStackView.axis = .vertical
             outerStackView.alignment = .fill
             outerStackView.distribution = .fillEqually
-            outerStackView.spacing = 4
+            outerStackView.spacing = 2
             
             baseStackView.addArrangedSubview(outerStackView)
             
-            for j in 0..<25 {
+            for j in 0..<26 {
                 let innerStackView = UIStackView()
                 innerStackView.axis = .horizontal
                 //innerStackView.alignment = .fill
@@ -94,11 +104,15 @@ class BookingViewController: UIViewController {
                 
                 outerStackView.addArrangedSubview(innerStackView)
                 
+                let hour = j*i*30/60;
+                let minute = j*30%60
+                let t_text = String(format: "%02d : %02d", hour, minute)
+                
                 let leftLabel = UILabel()
                 leftLabel.textAlignment = .center
                 leftLabel.layer.borderWidth = 2
                 leftLabel.textAlignment = .center
-                leftLabel.text = String(format: "%02d : %02d", j*i*30/60, j*30%60)
+                leftLabel.text = t_text
                 leftLabel.translatesAutoresizingMaskIntoConstraints = false
                 leftLabel.layer.borderColor = UIColor.black.cgColor
                 innerStackView.addArrangedSubview(leftLabel)
@@ -126,53 +140,55 @@ class BookingViewController: UIViewController {
             baseStackView.axis = .horizontal
             baseStackView.alignment = .fill
             baseStackView.distribution = .fillEqually
-            baseStackView.spacing = 8
-            baseStackView.backgroundColor = UIColor.gray
+            baseStackView.spacing = 4
             return baseStackView
         }()
         
         view.addSubview(baseStackView)
-        baseStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+        baseStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         baseStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         baseStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
-        baseStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35).isActive = true
+        baseStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
 
-        for _ in 0 ..< 4 {
+        for i in 1 ..< 5 {
             let outerStackView = UIStackView()
             outerStackView.translatesAutoresizingMaskIntoConstraints = false
             outerStackView.axis = .vertical
             outerStackView.alignment = .fill
             outerStackView.distribution = .fillEqually
-            outerStackView.spacing = 8
+            outerStackView.spacing = 2
             
             baseStackView.addArrangedSubview(outerStackView)
             
-            for _ in 0..<13 {
+            for j in 0..<13 {
                 
                 let innerStackView = UIStackView()
                 innerStackView.axis = .horizontal
                 //innerStackView.alignment = .fill
                 innerStackView.distribution = .fillEqually
                 //innerStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-                innerStackView.spacing = 4
+                innerStackView.spacing = 1
                 innerStackView.translatesAutoresizingMaskIntoConstraints = false
                 innerStackView.isUserInteractionEnabled = true
                 
                 outerStackView.addArrangedSubview(innerStackView)
+                
+                let hour = j*i*30/60;
+                let minute = j*30%60
+                let t_text = String(format: "%02d : %02d", hour, minute)
                 
                 let leftLabel = UILabel()
                 leftLabel.layer.borderWidth = 2
                 leftLabel.textAlignment = .center
                 //timeView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 leftLabel.translatesAutoresizingMaskIntoConstraints = false
-                leftLabel.layer.borderColor = UIColor.black.cgColor
+                leftLabel.text = t_text
                 
                 let rightLabel = UILabel()
                 rightLabel.textAlignment = .center
                 rightLabel.layer.borderWidth = 2
                 //nameView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 rightLabel.translatesAutoresizingMaskIntoConstraints = false
-                rightLabel.layer.borderColor = UIColor.black.cgColor
                 //stackView에 View추가
                 
                 innerStackView.addArrangedSubview(leftLabel)
