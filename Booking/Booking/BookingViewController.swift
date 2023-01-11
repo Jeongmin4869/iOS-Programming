@@ -150,7 +150,7 @@ class BookingViewController: UIViewController {
         baseStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
         baseStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
 
-        for i in 1 ..< 5 {
+        for i in 0 ..< 4 {
             let outerStackView = UIStackView()
             outerStackView.translatesAutoresizingMaskIntoConstraints = false
             outerStackView.axis = .vertical
@@ -165,7 +165,7 @@ class BookingViewController: UIViewController {
                 let innerStackView = UIStackView()
                 innerStackView.axis = .horizontal
                 //innerStackView.alignment = .fill
-                innerStackView.distribution = .fillEqually
+                innerStackView.distribution = .fill
                 //innerStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 innerStackView.spacing = 1
                 innerStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -173,27 +173,30 @@ class BookingViewController: UIViewController {
                 
                 outerStackView.addArrangedSubview(innerStackView)
                 
-                let hour = j*i*30/60;
-                let minute = j*30%60
+                let hour = 2*j+i*30/60
+                let minute = i*30%60
                 let t_text = String(format: "%02d : %02d", hour, minute)
                 
                 let leftLabel = UILabel()
+                innerStackView.addArrangedSubview(leftLabel)
                 leftLabel.layer.borderWidth = 2
                 leftLabel.textAlignment = .center
                 //timeView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 leftLabel.translatesAutoresizingMaskIntoConstraints = false
+                leftLabel.widthAnchor.constraint(equalTo: innerStackView.widthAnchor, multiplier: 0.4, constant: 0).isActive = true
                 leftLabel.text = t_text
                 
+                
                 let rightLabel = UILabel()
+                innerStackView.addArrangedSubview(rightLabel)
                 rightLabel.textAlignment = .center
                 rightLabel.layer.borderWidth = 2
                 //nameView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 rightLabel.translatesAutoresizingMaskIntoConstraints = false
                 //stackView에 View추가
                 
-                innerStackView.addArrangedSubview(leftLabel)
-                innerStackView.addArrangedSubview(rightLabel)
-                
+                let tapGestureRecognier = UITapGestureRecognizer(target: self, action: #selector(tryBooking))
+                innerStackView.addGestureRecognizer(tapGestureRecognier)
             }
         }
     }
