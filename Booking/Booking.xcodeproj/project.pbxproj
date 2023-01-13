@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		A19C8153295DCB63003E1D88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C8152295DCB63003E1D88 /* AppDelegate.swift */; };
 		A19C8155295DCB63003E1D88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C8154295DCB63003E1D88 /* SceneDelegate.swift */; };
-		A19C8157295DCB63003E1D88 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C8156295DCB63003E1D88 /* BookingViewController.swift */; };
 		A19C815A295DCB63003E1D88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A19C8158295DCB63003E1D88 /* Main.storyboard */; };
 		A19C815C295DCB64003E1D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19C815B295DCB64003E1D88 /* Assets.xcassets */; };
 		A19C815F295DCB64003E1D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A19C815D295DCB64003E1D88 /* LaunchScreen.storyboard */; };
-		A19C8167295DCC72003E1D88 /* common in Resources */ = {isa = PBXBuildFile; fileRef = A19C8166295DCC72003E1D88 /* common */; };
+		A19C816A2971905E003E1D88 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C8156295DCB63003E1D88 /* BookingViewController.swift */; };
+		A19C817A29719357003E1D88 /* DatabaseBroker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C817329719357003E1D88 /* DatabaseBroker.swift */; };
+		A19C817B29719357003E1D88 /* FilebaseBroker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C817429719357003E1D88 /* FilebaseBroker.swift */; };
+		A19C817C29719357003E1D88 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C817529719357003E1D88 /* Preferences.swift */; };
+		A19C817D29719357003E1D88 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C817629719357003E1D88 /* Setting.swift */; };
+		A19C817E29719357003E1D88 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C817729719357003E1D88 /* Message.swift */; };
+		A19C817F29719357003E1D88 /* ArchivableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C817829719357003E1D88 /* ArchivableString.swift */; };
+		A19C818029719357003E1D88 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C817929719357003E1D88 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +31,13 @@
 		A19C815B295DCB64003E1D88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A19C815E295DCB64003E1D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A19C8160295DCB64003E1D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A19C8166295DCC72003E1D88 /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; path = common; sourceTree = "<group>"; };
+		A19C817329719357003E1D88 /* DatabaseBroker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseBroker.swift; path = common/DatabaseBroker.swift; sourceTree = "<group>"; };
+		A19C817429719357003E1D88 /* FilebaseBroker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilebaseBroker.swift; path = common/FilebaseBroker.swift; sourceTree = "<group>"; };
+		A19C817529719357003E1D88 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = common/Preferences.swift; sourceTree = "<group>"; };
+		A19C817629719357003E1D88 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = common/Setting.swift; sourceTree = "<group>"; };
+		A19C817729719357003E1D88 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = common/Message.swift; sourceTree = "<group>"; };
+		A19C817829719357003E1D88 /* ArchivableString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchivableString.swift; path = common/ArchivableString.swift; sourceTree = "<group>"; };
+		A19C817929719357003E1D88 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = common/User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +70,13 @@
 		A19C8151295DCB63003E1D88 /* Booking */ = {
 			isa = PBXGroup;
 			children = (
-				A19C8166295DCC72003E1D88 /* common */,
+				A19C817829719357003E1D88 /* ArchivableString.swift */,
+				A19C817329719357003E1D88 /* DatabaseBroker.swift */,
+				A19C817429719357003E1D88 /* FilebaseBroker.swift */,
+				A19C817729719357003E1D88 /* Message.swift */,
+				A19C817529719357003E1D88 /* Preferences.swift */,
+				A19C817629719357003E1D88 /* Setting.swift */,
+				A19C817929719357003E1D88 /* User.swift */,
 				A19C8152295DCB63003E1D88 /* AppDelegate.swift */,
 				A19C8154295DCB63003E1D88 /* SceneDelegate.swift */,
 				A19C8156295DCB63003E1D88 /* BookingViewController.swift */,
@@ -131,7 +149,6 @@
 				A19C815F295DCB64003E1D88 /* LaunchScreen.storyboard in Resources */,
 				A19C815C295DCB64003E1D88 /* Assets.xcassets in Resources */,
 				A19C815A295DCB63003E1D88 /* Main.storyboard in Resources */,
-				A19C8167295DCC72003E1D88 /* common in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +159,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A19C8157295DCB63003E1D88 /* BookingViewController.swift in Sources */,
 				A19C8153295DCB63003E1D88 /* AppDelegate.swift in Sources */,
+				A19C817A29719357003E1D88 /* DatabaseBroker.swift in Sources */,
+				A19C817C29719357003E1D88 /* Preferences.swift in Sources */,
+				A19C816A2971905E003E1D88 /* BookingViewController.swift in Sources */,
+				A19C817D29719357003E1D88 /* Setting.swift in Sources */,
+				A19C817E29719357003E1D88 /* Message.swift in Sources */,
 				A19C8155295DCB63003E1D88 /* SceneDelegate.swift in Sources */,
+				A19C817F29719357003E1D88 /* ArchivableString.swift in Sources */,
+				A19C818029719357003E1D88 /* User.swift in Sources */,
+				A19C817B29719357003E1D88 /* FilebaseBroker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

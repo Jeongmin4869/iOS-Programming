@@ -7,11 +7,14 @@
 
 import UIKit
 
-class BookingViewController: UIViewController {
+class BookingViewController: UIViewController, DatabaseDelegate {
 
     var userName: String! = "gdhong"
     var userGroup: String! = "TennisCourt"
-
+    var maxSlot: Int = 50
+    var maxTotal: Int = 0
+    var maxContinuity: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,25 +28,9 @@ class BookingViewController: UIViewController {
             else {
                 drawBase_2()
             }
-            
-            
+                    
         }
-        /*
-        
-        if UIDevice.current.orientation.isPortrait {
-            //세로모드
-            for view in self.view.subviews{
-                view.removeFromSuperview()
-            }
-            drawBase_1()
-        }else {
-            //가로모드
-            for view in self.view.subviews{
-                view.removeFromSuperview()
-            }
-            drawBase_2()
-        }
-         */
+
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -173,6 +160,10 @@ class BookingViewController: UIViewController {
                 
                 outerStackView.addArrangedSubview(innerStackView)
                 
+                if i*13+j >= maxSlot {
+                    continue
+                }
+                
                 let hour = 2*j+i*30/60
                 let minute = i*30%60
                 let t_text = String(format: "%02d : %02d", hour, minute)
@@ -204,11 +195,11 @@ class BookingViewController: UIViewController {
     @objc func tryBooking(gesture: UITapGestureRecognizer){
         let innerView = gesture.view as! UIStackView
         let label = (innerView.arrangedSubviews[1] as! UILabel)
-        if(label.text?.isEmpty == true){
+        if let text = label.text, text.isEmpty {
             label.text = "예약완료"
         }
-        else {
-            label.text = "";
+        else{
+
         }
     }
 
