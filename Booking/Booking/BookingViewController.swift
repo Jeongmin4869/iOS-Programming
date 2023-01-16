@@ -14,12 +14,18 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     var maxSlot: Int = 50
     var maxTotal: Int = 0
     var maxContinuity: Int = 0
+    var nowHour: Int = 0
+    var nowMinute: Int = 0
+    
+    //현재 시간을 가져오기 위한 변수들
+    var date = Date()
+    var cal = Calendar.current
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-
+        getTime()
 
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             if windowScene.interfaceOrientation.isPortrait {
@@ -34,6 +40,7 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        getTime()
         if UIDevice.current.orientation.isPortrait {
             //세로모드
             for view in self.view.subviews{
@@ -57,10 +64,10 @@ class BookingViewController: UIViewController, DatabaseDelegate {
             let baseStackView = UIStackView()
             
             baseStackView.translatesAutoresizingMaskIntoConstraints = false
-            baseStackView.axis = .horizontal
+            baseStackView.axis = .vertical
             baseStackView.alignment = .fill
             baseStackView.distribution = .fillEqually
-            baseStackView.spacing = 4
+            baseStackView.spacing = 1
             return baseStackView
         }()
         
@@ -70,17 +77,17 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         baseStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
         baseStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35).isActive = true
         
-        for i in 1 ..< 3 {
+        for i in 0..<25 {
             let outerStackView = UIStackView()
             outerStackView.translatesAutoresizingMaskIntoConstraints = false
-            outerStackView.axis = .vertical
+            outerStackView.axis = .horizontal
             outerStackView.alignment = .fill
             outerStackView.distribution = .fillEqually
-            outerStackView.spacing = 2
+            outerStackView.spacing = 4
             
             baseStackView.addArrangedSubview(outerStackView)
             
-            for j in 0..<26 {
+            for j in 0..<2 {
                 let innerStackView = UIStackView()
                 innerStackView.axis = .horizontal
                 //innerStackView.alignment = .fill
@@ -91,8 +98,8 @@ class BookingViewController: UIViewController, DatabaseDelegate {
                 
                 outerStackView.addArrangedSubview(innerStackView)
                 
-                let hour = j*i*30/60;
-                let minute = j*30%60
+                let hour = i
+                let minute = j*30
                 let t_text = String(format: "%02d : %02d", hour, minute)
                 
                 let leftLabel = UILabel()
@@ -112,6 +119,12 @@ class BookingViewController: UIViewController, DatabaseDelegate {
                 rightLabel.layer.borderColor = UIColor.black.cgColor
                 innerStackView.addArrangedSubview(rightLabel)
                 
+                if hour*60+minute <= nowHour*60+nowMinute {
+                    leftLabel.backgroundColor = UIColor.gray
+                    rightLabel.backgroundColor = UIColor.gray
+                    continue
+                }
+                
                 let tapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(tryBooking))
                 innerStackView.addGestureRecognizer(tapGestureRecognizer);
             }
@@ -124,10 +137,10 @@ class BookingViewController: UIViewController, DatabaseDelegate {
             let baseStackView = UIStackView()
             
             baseStackView.translatesAutoresizingMaskIntoConstraints = false
-            baseStackView.axis = .horizontal
+            baseStackView.axis = .vertical
             baseStackView.alignment = .fill
             baseStackView.distribution = .fillEqually
-            baseStackView.spacing = 4
+            baseStackView.spacing = 1
             return baseStackView
         }()
         
@@ -137,17 +150,17 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         baseStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
         baseStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
 
-        for i in 0 ..< 4 {
+        for i in 0 ..< 13 {
             let outerStackView = UIStackView()
             outerStackView.translatesAutoresizingMaskIntoConstraints = false
-            outerStackView.axis = .vertical
+            outerStackView.axis = .horizontal
             outerStackView.alignment = .fill
             outerStackView.distribution = .fillEqually
-            outerStackView.spacing = 2
+            outerStackView.spacing = 4
             
             baseStackView.addArrangedSubview(outerStackView)
             
-            for j in 0..<13 {
+            for j in 0..<4 {
                 
                 let innerStackView = UIStackView()
                 innerStackView.axis = .horizontal
@@ -160,12 +173,13 @@ class BookingViewController: UIViewController, DatabaseDelegate {
                 
                 outerStackView.addArrangedSubview(innerStackView)
                 
-                if i*13+j >= maxSlot {
+                let hour = (i*120 + j*30)/60
+                let minute = j*30%60
+                
+                if(hour>24){
                     continue
                 }
                 
-                let hour = 2*j+i*30/60
-                let minute = i*30%60
                 let t_text = String(format: "%02d : %02d", hour, minute)
                 
                 let leftLabel = UILabel()
@@ -186,6 +200,12 @@ class BookingViewController: UIViewController, DatabaseDelegate {
                 rightLabel.translatesAutoresizingMaskIntoConstraints = false
                 //stackView에 View추가
                 
+                if hour*60+minute <= nowHour*60+nowMinute {
+                    leftLabel.backgroundColor = UIColor.gray
+                    rightLabel.backgroundColor = UIColor.gray
+                    continue
+                }
+                
                 let tapGestureRecognier = UITapGestureRecognizer(target: self, action: #selector(tryBooking))
                 innerStackView.addGestureRecognizer(tapGestureRecognier)
             }
@@ -199,9 +219,15 @@ class BookingViewController: UIViewController, DatabaseDelegate {
             label.text = "예약완료"
         }
         else{
-
+            label.text = ""
         }
     }
 
+    func getTime(){
+        nowHour = cal.component(.hour, from: date)
+        nowMinute = cal.component(.minute, from: date)
+        print(nowHour)
+    }
+    
 }
 
