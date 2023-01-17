@@ -17,6 +17,9 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     var nowHour: Int = 0
     var nowMinute: Int = 0
     
+    var databaseBroker: DatabaseBroker!
+    var bookingDatabase: [String]!
+    var labels: [UILabel]!
     //현재 시간을 가져오기 위한 변수들
     var date = Date()
     var cal = Calendar.current
@@ -26,6 +29,19 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         // Do any additional setup after loading the view.
         
         getTime()
+        
+        databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
+        databaseBroker.setBookingDataDelegate(userGroup: userName, dataDelegate: self)
+        databaseBroker.setSettingDataDelegate(dataDelegate: self)
+        
+        if  databaseBroker?.loadBookingDatabase(userGroup: userGroup) == nil {
+            bookingDatabase = [String].init(repeating: "", count: 50)
+            databaseBroker.setBookingDataDelegate(userGroup: userGroup, dataDelegate: self)
+        }
+        else {
+            bookingDatabase = databaseBroker.loadBookingDatabase(userGroup: userGroup)
+        }
+        
 
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             if windowScene.interfaceOrientation.isPortrait {
@@ -227,6 +243,11 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         nowHour = cal.component(.hour, from: date)
         nowMinute = cal.component(.minute, from: date)
         print(nowHour)
+    }
+    
+    func onChange(bookingDatabaseStr: String) {
+        bookingDatabase = databaseBroker.loadBookingDatabase(userGroup: userGroup)
+        // 다시로드
     }
     
 }
