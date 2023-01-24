@@ -8,7 +8,8 @@
 import UIKit
 
 class BookingViewController: UIViewController, DatabaseDelegate {
-
+    
+    /*변수명 정의*/
     var userName: String! = "gdhong"
     var userGroup: String! = "TennisCourt"
     var maxSlot: Int = 50
@@ -27,28 +28,12 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         getTime()
         
-        //db생성
+        /*DB생성*/
         databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
         databaseBroker.setBookingDataDelegate(userGroup: userName, dataDelegate: self)
-        //bookingDatabase = [String].init(repeating: "", count: maxSlot)
-        //databaseBroker.setGroupDataDelegate(dataDelegate: self)
-        //databaseBroker.setUserDataDelegate(dataDelegate: self)
-        //databaseBroker!.setBookingDataDelegate(userGroup: userName, dataDelegate: self)
-        //databaseBroker.setBookingDataDelegate(userGroup: userName, dataDelegate: self)
-        //databaseBroker.setSettingDataDelegate(dataDelegate: self)
-        
-        /*
-        if  databaseBroker?.loadBookingDatabase(userGroup: userGroup) == nil {
-            bookingDatabase = [String].init(repeating: "", count: 50)
-            databaseBroker.setBookingDataDelegate(userGroup: userGroup, dataDelegate: self)
-        }
-        else {
-            bookingDatabase = databaseBroker.loadBookingDatabase(userGroup: userGroup)
-        }
-        */
 
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             if windowScene.interfaceOrientation.isPortrait {
@@ -238,7 +223,11 @@ class BookingViewController: UIViewController, DatabaseDelegate {
             }
         }
     }
-
+    
+    /*
+     * 함수이름 : tryBooking()
+     * 목적    : 예약 기능 구현
+     */
     @objc func tryBooking(gesture: BookingTapGestureRecognizer){
         let innerView = gesture.view as! UIStackView
         let index = gesture.index
@@ -252,6 +241,10 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         bookingDatabase[index!] = label.text!
     }
 
+    /*
+     * 함수이름 : getTime()
+     * 목적    : 현재 시간을 가져온다.
+     */
     func getTime(){
         nowHour = cal.component(.hour, from: date)
         nowMinute = cal.component(.minute, from: date)
