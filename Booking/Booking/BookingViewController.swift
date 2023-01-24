@@ -30,10 +30,17 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         
         getTime()
         
+        //db생성
         databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
         databaseBroker.setBookingDataDelegate(userGroup: userName, dataDelegate: self)
-        databaseBroker.setSettingDataDelegate(dataDelegate: self)
+        //bookingDatabase = [String].init(repeating: "", count: maxSlot)
+        //databaseBroker.setGroupDataDelegate(dataDelegate: self)
+        //databaseBroker.setUserDataDelegate(dataDelegate: self)
+        //databaseBroker!.setBookingDataDelegate(userGroup: userName, dataDelegate: self)
+        //databaseBroker.setBookingDataDelegate(userGroup: userName, dataDelegate: self)
+        //databaseBroker.setSettingDataDelegate(dataDelegate: self)
         
+        /*
         if  databaseBroker?.loadBookingDatabase(userGroup: userGroup) == nil {
             bookingDatabase = [String].init(repeating: "", count: 50)
             databaseBroker.setBookingDataDelegate(userGroup: userGroup, dataDelegate: self)
@@ -41,7 +48,7 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         else {
             bookingDatabase = databaseBroker.loadBookingDatabase(userGroup: userGroup)
         }
-        
+        */
 
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             if windowScene.interfaceOrientation.isPortrait {
@@ -133,6 +140,7 @@ class BookingViewController: UIViewController, DatabaseDelegate {
                 rightLabel.layer.borderWidth = 2
                 rightLabel.translatesAutoresizingMaskIntoConstraints = false
                 rightLabel.layer.borderColor = UIColor.black.cgColor
+                rightLabel.text = bookingDatabase[i*2+j]
                 innerStackView.addArrangedSubview(rightLabel)
                 
                 if hour*60+minute <= nowHour*60+nowMinute {
@@ -140,8 +148,8 @@ class BookingViewController: UIViewController, DatabaseDelegate {
                     rightLabel.backgroundColor = UIColor.gray
                     continue
                 }
-                
-                let tapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(tryBooking))
+                let tapGestureRecognizer = BookingTapGestureRecognizer(target: self, action: #selector(tryBooking))
+                tapGestureRecognizer.index = i*2+j
                 innerStackView.addGestureRecognizer(tapGestureRecognizer);
             }
         }
@@ -212,6 +220,7 @@ class BookingViewController: UIViewController, DatabaseDelegate {
                 innerStackView.addArrangedSubview(rightLabel)
                 rightLabel.textAlignment = .center
                 rightLabel.layer.borderWidth = 2
+                rightLabel.text = bookingDatabase[i*4+j]
                 //nameView.heightAnchor.constraint(equalToConstant: 30).isActive = true
                 rightLabel.translatesAutoresizingMaskIntoConstraints = false
                 //stackView에 View추가
@@ -222,21 +231,25 @@ class BookingViewController: UIViewController, DatabaseDelegate {
                     continue
                 }
                 
-                let tapGestureRecognier = UITapGestureRecognizer(target: self, action: #selector(tryBooking))
-                innerStackView.addGestureRecognizer(tapGestureRecognier)
+                let tapGestureRecognizer = BookingTapGestureRecognizer(target: self, action: #selector(tryBooking))
+                tapGestureRecognizer.index = i*4+j
+                
+                innerStackView.addGestureRecognizer(tapGestureRecognizer)
             }
         }
     }
 
-    @objc func tryBooking(gesture: UITapGestureRecognizer){
+    @objc func tryBooking(gesture: BookingTapGestureRecognizer){
         let innerView = gesture.view as! UIStackView
+        let index = gesture.index
         let label = (innerView.arrangedSubviews[1] as! UILabel)
         if let text = label.text, text.isEmpty {
-            label.text = "예약완료"
+            label.text = userName
         }
         else{
             label.text = ""
         }
+        bookingDatabase[index!] = label.text!
     }
 
     func getTime(){
@@ -249,6 +262,8 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         bookingDatabase = databaseBroker.loadBookingDatabase(userGroup: userGroup)
         // 다시로드
     }
+
+    
     
 }
 
