@@ -9,10 +9,12 @@ import UIKit
 
 class BookingViewController: UIViewController, DatabaseDelegate {
     
+    //bookingDatabaseStr
+    
     /*변수명 정의*/
     var userName: String! = "gdhong"
     var userGroup: String! = "TennisCourt"
-    var maxSlot: Int = 50
+    //var maxSlot: Int = 50
     var maxTotal: Int = 0
     var maxContinuity: Int = 0
     var nowHour: Int = 0
@@ -20,6 +22,7 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     
     var databaseBroker: DatabaseBroker!
     var bookingDatabase: [String]!
+    var setting: Setting!
     var labels: [UILabel]!
     //현재 시간을 가져오기 위한 변수들
     var date = Date()
@@ -33,8 +36,9 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         
         /*DB생성*/
         databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
+        databaseBroker.setSettingDataDelegate(dataDelegate: self)
         databaseBroker.setBookingDataDelegate(userGroup: userName, dataDelegate: self)
-
+        
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             if windowScene.interfaceOrientation.isPortrait {
                 drawBase_1()
@@ -252,8 +256,34 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     }
     
     func onChange(bookingDatabaseStr: String) {
-        bookingDatabase = databaseBroker.loadBookingDatabase(userGroup: userGroup)
         // 다시로드
+        //databaseBroker.saveBookingDatabase(userGroup: userGroup, bookingDatabase: bookingDatabase)
+        bookingDatabase = databaseBroker.loadBookingDatabase(userGroup: userGroup)
+        
+        var continueBookingSlots: Int = 0
+        var totalBookingSlots: Int = 0
+        
+        //연속 예약 확인
+        for i in 0..<bookingDatabase.count {
+            if bookingDatabase[i] == "" {
+                continueBookingSlots = 0
+            }
+            else {
+                continueBookingSlots += 1
+            }
+
+            if continueBookingSlots == setting.maxContinueBookingSlots{
+                Message.information(parent: self, title: "Failed", message: "..")
+            }
+                
+        }
+        
+        
+        //하루 예약 확인
+    }
+    
+    func onChange(settingDatabaseStr: String) {
+        setting = databaseBroker.loadSettingDatabase()
     }
 
     

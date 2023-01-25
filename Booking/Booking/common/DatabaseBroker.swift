@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*선택적 프로토콜 요구조건 : @objc optional */
 @objc protocol DatabaseDelegate{
     @objc optional func onChange(groupDatabaseStr:String)
     @objc optional func onChange(userDatabaseStr:String)
