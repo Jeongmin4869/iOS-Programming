@@ -234,17 +234,17 @@ class BookingViewController: UIViewController, DatabaseDelegate {
      */
     @objc func tryBooking(gesture: BookingTapGestureRecognizer){
         let innerView = gesture.view as! UIStackView
-        let index = gesture.index
+        var index: Int = gesture.index
         let label = (innerView.arrangedSubviews[1] as! UILabel)
         if let text = label.text, text.isEmpty {
-            if checkBookingSlots(bookingDatabase: bookingDatabase) == true{
+            if checkBookingSlots(bookingDatabase: bookingDatabase, index: index) == true{
                 label.text = userName
             }
         }
         else{
             label.text = ""
         }
-        bookingDatabase[index!] = label.text!
+        bookingDatabase[index] = label.text!
         databaseBroker.saveBookingDatabase(userGroup: userGroup, bookingDatabase: bookingDatabase)
     }
 
@@ -267,33 +267,36 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     
     //예약확인
     //save, load 이전에 예약확인 하도록 수정!
-    func checkBookingSlots(bookingDatabase: [String]) -> Bool{
+    func checkBookingSlots(bookingDatabase: [String], index: Int) -> Bool{
 
         var continueBookingSlots: Int = 0
         var totalBookingSlots: Int = 0
         
         //예약 확인
         for i in 0..<bookingDatabase.count {
-            if bookingDatabase[i] == userName {
+            
+            if bookingDatabase[i] == userName || i == index{
                 continueBookingSlots += 1
                 totalBookingSlots += 1
+                
+                //연속 예약 확인
+                if continueBookingSlots > setting.maxContinueBookingSlots {
+                    Message.information(parent: self, title: "Failed", message: "continueBookingSlots error")
+                    return false
+                }
+                
             }
             else {
                 continueBookingSlots = 0
             }
-            
-            //연속 예약 확인
-            if continueBookingSlots == setting.maxContinueBookingSlots - 1 {
-                Message.information(parent: self, title: "Failed", message: "continueBookingSlots error")
-                return false
-            }
-            
-            //전체 예약 확인
-            if totalBookingSlots == setting.maxTotalBookingSlots - 1{
-                Message.information(parent: self, title: "Failed", message: "totalBookingSlots Error")
-                return false
-            }
         }
+        
+        //전체 예약 확인
+        if totalBookingSlots > setting.maxTotalBookingSlots{
+            Message.information(parent: self, title: "Failed", message: "totalBookingSlots Error")
+            return false
+        }
+        
         return true
     }
     

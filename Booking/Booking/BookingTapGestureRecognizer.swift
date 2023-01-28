@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 class BookingTapGestureRecognizer: UITapGestureRecognizer {
-    var index: Int?
+    var index: Int = 0
 }
