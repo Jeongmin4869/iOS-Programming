@@ -14,25 +14,25 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     /*변수명 정의*/
     var userName: String! = "gdhong"
     var userGroup: String! = "TennisCourt"
-    //var maxSlot: Int = 50
-    var maxTotal: Int = 0
-    var maxContinuity: Int = 0
     var nowHour: Int = 0
     var nowMinute: Int = 0
+    var nowSec: Int = 0
     
     var databaseBroker: DatabaseBroker!
     var bookingDatabase: [String]!
     var setting: Setting!
     var labels: [UILabel]!
     //현재 시간을 가져오기 위한 변수들
-    var date = Date()
     var cal = Calendar.current
+    //타이머
+    var uiTimer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
         getTime()
+        uiTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(drawBookingOnBase), userInfo: nil, repeats: true)
         
         /*DB생성*/
         databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
@@ -53,19 +53,7 @@ class BookingViewController: UIViewController, DatabaseDelegate {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         getTime()
-        if UIDevice.current.orientation.isPortrait {
-            //세로모드
-            for view in self.view.subviews{
-                view.removeFromSuperview()
-            }
-            drawBase_1()
-        }else {
-            //가로모드
-            for view in self.view.subviews{
-                view.removeFromSuperview()
-            }
-            drawBase_2()
-        }
+        drow()
     }
 
 
@@ -253,9 +241,12 @@ class BookingViewController: UIViewController, DatabaseDelegate {
      * 목적    : 현재 시간을 가져온다.
      */
     func getTime(){
+        var date = Date()
         nowHour = cal.component(.hour, from: date)
         nowMinute = cal.component(.minute, from: date)
-        print(nowHour)
+        nowSec = cal.component(.second, from: date)
+        
+        print(nowSec)
     }
     
     func onChange(bookingDatabaseStr: String) {
@@ -265,8 +256,10 @@ class BookingViewController: UIViewController, DatabaseDelegate {
 
     }
     
-    //예약확인
-    //save, load 이전에 예약확인 하도록 수정!
+    /*
+     * 함수이름 : checkBookingSlots()
+     * 목적    : 시스템이 예약조건을 따르도록 한다.
+     */
     func checkBookingSlots(bookingDatabase: [String], index: Int) -> Bool{
 
         var continueBookingSlots: Int = 0
@@ -304,7 +297,37 @@ class BookingViewController: UIViewController, DatabaseDelegate {
         setting = databaseBroker.loadSettingDatabase()
     }
 
+    /*
+     * 함수이름 : drawBookingOnBase()
+     * 목적    : 00분에서 30분씩 지날때마다 화면을 reload한다.
+     */
+    @objc func drawBookingOnBase(){
+        getTime()
+        if nowMinute % 30 == 0 && nowSec == 0{
+            print("30분이 지났습니다")
+            drow()
+        }
+    }
     
+    /*
+     * 함수이름 : drow()
+     * 목적    : 화면을 그린다.
+     */
+    func drow(){
+        if UIDevice.current.orientation.isPortrait {
+            //세로모드
+            for view in self.view.subviews{
+                view.removeFromSuperview()
+            }
+            drawBase_1()
+        }else {
+            //가로모드
+            for view in self.view.subviews{
+                view.removeFromSuperview()
+            }
+            drawBase_2()
+        }
+    }
     
 }
 
