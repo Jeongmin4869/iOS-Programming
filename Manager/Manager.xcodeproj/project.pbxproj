@@ -13,6 +13,8 @@
 		A19C8197298A9FCB003E1D88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A19C8195298A9FCB003E1D88 /* Main.storyboard */; };
 		A19C8199298A9FCD003E1D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19C8198298A9FCD003E1D88 /* Assets.xcassets */; };
 		A19C819C298A9FCD003E1D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A19C819A298A9FCD003E1D88 /* LaunchScreen.storyboard */; };
+		A19C81A4298BD8FC003E1D88 /* ManagingGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81A3298BD8FC003E1D88 /* ManagingGroupViewController.swift */; };
+		A19C81A6298BECCE003E1D88 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81A5298BECCE003E1D88 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		A19C8198298A9FCD003E1D88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A19C819B298A9FCD003E1D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A19C819D298A9FCD003E1D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A19C81A3298BD8FC003E1D88 /* ManagingGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagingGroupViewController.swift; sourceTree = "<group>"; };
+		A19C81A5298BECCE003E1D88 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				A19C8198298A9FCD003E1D88 /* Assets.xcassets */,
 				A19C819A298A9FCD003E1D88 /* LaunchScreen.storyboard */,
 				A19C819D298A9FCD003E1D88 /* Info.plist */,
+				A19C81A3298BD8FC003E1D88 /* ManagingGroupViewController.swift */,
+				A19C81A5298BECCE003E1D88 /* TabBarViewController.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			files = (
 				A19C8194298A9FCB003E1D88 /* ViewController.swift in Sources */,
 				A19C8190298A9FCB003E1D88 /* AppDelegate.swift in Sources */,
+				A19C81A4298BD8FC003E1D88 /* ManagingGroupViewController.swift in Sources */,
+				A19C81A6298BECCE003E1D88 /* TabBarViewController.swift in Sources */,
 				A19C8192298A9FCB003E1D88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
