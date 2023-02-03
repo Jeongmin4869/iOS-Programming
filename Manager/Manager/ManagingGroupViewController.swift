@@ -1,10 +1,13 @@
 import UIKit
 
-class ManagingGroupViewController: UIViewController {
+class ManagingGroupViewController: UITableViewController {
     
     
     override func viewDidLoad() {
         print("..ManagingGroupViewController..")
+        self.navigationItem.title = "Group"
+        
+        
     }
     
 }
