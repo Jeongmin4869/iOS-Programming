@@ -72,6 +72,28 @@
             </objects>
             <point key="canvasLocation" x="1556" y="-252"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Bxl-bb-Sna">
+            <objects>
+                <viewController id="Cxy-PD-mto" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fZe-5M-Vig">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjQ-V0-xOf">
+                                <rect key="frame" x="76" y="295" width="240" height="282"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4tS-nN-alm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lZ-Nr-X2t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2460.3053435114502" y="-252.11267605633805"/>
+        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="K28-sS-CtP">
             <objects>
@@ -152,6 +174,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
