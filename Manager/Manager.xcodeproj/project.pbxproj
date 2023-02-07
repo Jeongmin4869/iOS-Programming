@@ -22,6 +22,7 @@
 		A19C81D7298D3A85003E1D88 /* FilebaseBroker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81D0298D3A85003E1D88 /* FilebaseBroker.swift */; };
 		A19C81D8298D3A85003E1D88 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81D1298D3A85003E1D88 /* Setting.swift */; };
 		A19C81D9298D3A85003E1D88 /* ArchivableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81D2298D3A85003E1D88 /* ArchivableString.swift */; };
+		A19C81DB29928084003E1D88 /* AddGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81DA29928084003E1D88 /* AddGroupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A19C81D0298D3A85003E1D88 /* FilebaseBroker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilebaseBroker.swift; sourceTree = "<group>"; };
 		A19C81D1298D3A85003E1D88 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		A19C81D2298D3A85003E1D88 /* ArchivableString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchivableString.swift; sourceTree = "<group>"; };
+		A19C81DA29928084003E1D88 /* AddGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				A19C819D298A9FCD003E1D88 /* Info.plist */,
 				A19C81A3298BD8FC003E1D88 /* ManagingGroupViewController.swift */,
 				A19C81A5298BECCE003E1D88 /* TabBarViewController.swift */,
+				A19C81DA29928084003E1D88 /* AddGroupVC.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				A19C81A4298BD8FC003E1D88 /* ManagingGroupViewController.swift in Sources */,
 				A19C81D4298D3A85003E1D88 /* DatabaseBroker.swift in Sources */,
 				A19C81D6298D3A85003E1D88 /* User.swift in Sources */,
+				A19C81DB29928084003E1D88 /* AddGroupVC.swift in Sources */,
 				A19C81D8298D3A85003E1D88 /* Setting.swift in Sources */,
 				A19C81D5298D3A85003E1D88 /* Message.swift in Sources */,
 				A19C81A6298BECCE003E1D88 /* TabBarViewController.swift in Sources */,

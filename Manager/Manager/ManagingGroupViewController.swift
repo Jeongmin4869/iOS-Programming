@@ -5,6 +5,9 @@ class ManagingGroupViewController: UITableViewController, DatabaseDelegate{
     var databaseBroker : DatabaseBroker!
     var groupDatabase: [String]!
     
+    @IBOutlet weak var backBtn: UIBarButtonItem!
+    @IBOutlet weak var plusBtn: UIBarButtonItem!
+    
     override func viewDidLoad() {
         
         databaseBroker = DatabaseObject.createDatabase(rootPath: "test")
@@ -32,6 +35,10 @@ class ManagingGroupViewController: UITableViewController, DatabaseDelegate{
     
     func onChange(groupDatabaseStr: String) {
         groupDatabase = databaseBroker.loadGroupDatabase()
+    }
+    
+    
+    @IBAction func clickPlusBtn(_ sender: Any) {
     }
     
     
