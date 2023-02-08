@@ -3,6 +3,7 @@ import UIKit
 class ManagingGroupViewController: UITableViewController, DatabaseDelegate{
     
     var databaseBroker : DatabaseBroker!
+    var addGroupName: String!
     var groupDatabase: [String]!
     
     @IBOutlet weak var backBtn: UIBarButtonItem!
@@ -39,6 +40,17 @@ class ManagingGroupViewController: UITableViewController, DatabaseDelegate{
     
     
     @IBAction func clickPlusBtn(_ sender: Any) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddGroup"{
+            
+        }
+    }
+    
+    func dataSend(data: String){
+        addGroupName = data
+        print(data)
     }
     
     
