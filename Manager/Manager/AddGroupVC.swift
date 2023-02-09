@@ -2,13 +2,13 @@ import UIKit
 
 
 //1. 데이터를 넘기는 함수 원형만 적고, 구현부는 이전 뷰에서 진행
-protocol sendNewGroupNM {
+protocol saveGroupName {
   func dataSend(data: String)
 }
 
 class AddGroupVC: UIViewController{
     
-    var delegate: sendNewGroupNM?
+    var delegate: saveGroupName?
     
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var label: UILabel!

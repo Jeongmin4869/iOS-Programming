@@ -1,6 +1,6 @@
 import UIKit
 
-class ManagingGroupViewController: UITableViewController, DatabaseDelegate{
+class ManagingGroupViewController: UITableViewController, DatabaseDelegate, saveGroupName{
     
     var databaseBroker : DatabaseBroker!
     var addGroupName: String!
@@ -42,15 +42,16 @@ class ManagingGroupViewController: UITableViewController, DatabaseDelegate{
     @IBAction func clickPlusBtn(_ sender: Any) {
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddGroup"{
-            
-        }
+    func dataSend(data: String){
+        print(data)
+        addGroupName = data
     }
     
-    func dataSend(data: String){
-        addGroupName = data
-        print(data)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if segue.identifier == "AddGroup"{
+            guard let addGroupVC = self.storyboard?.instantiateViewController(withIdentifier: "AddGroupVC") as? AddGroupVC else {return}
+            addGroupVC.delegate = self
+        //}
     }
     
     

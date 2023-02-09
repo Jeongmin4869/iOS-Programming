@@ -68,7 +68,9 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="nGI-61-0nP">
                             <connections>
                                 <action selector="clickPlusBtn:" destination="ahs-Rx-0Kq" id="h0r-Y8-H57"/>
-                                <segue destination="Cxy-PD-mto" kind="presentation" id="xpp-df-TfV"/>
+                                <segue destination="Cxy-PD-mto" kind="popoverPresentation" identifier="AddGroup" popoverAnchorBarButtonItem="nGI-61-0nP" id="xpp-df-TfV">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -84,7 +86,7 @@
         <!--Add GroupVC-->
         <scene sceneID="Bxl-bb-Sna">
             <objects>
-                <viewController id="Cxy-PD-mto" customClass="AddGroupVC" customModule="Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddGroupVC" id="Cxy-PD-mto" customClass="AddGroupVC" customModule="Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fZe-5M-Vig">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
