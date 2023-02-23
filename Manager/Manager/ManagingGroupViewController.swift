@@ -1,6 +1,6 @@
 import UIKit
 
-class ManagingGroupViewController: UITableViewController, DatabaseDelegate, saveGroupName{
+class ManagingGroupViewController: UITableViewController, DatabaseDelegate, saveGNameDelegate{
     
     var databaseBroker : DatabaseBroker!
     var addGroupName: String!
@@ -36,6 +36,7 @@ class ManagingGroupViewController: UITableViewController, DatabaseDelegate, save
     
     func onChange(groupDatabaseStr: String) {
         groupDatabase = databaseBroker.loadGroupDatabase()
+        tableView.reloadData()
     }
     
     
@@ -45,13 +46,14 @@ class ManagingGroupViewController: UITableViewController, DatabaseDelegate, save
     func dataSend(data: String){
         print(data)
         addGroupName = data
+        groupDatabase.append(data)
+        databaseBroker.saveGroupDatabase(groupDatabase: groupDatabase)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //if segue.identifier == "AddGroup"{
-            guard let addGroupVC = self.storyboard?.instantiateViewController(withIdentifier: "AddGroupVC") as? AddGroupVC else {return}
-            addGroupVC.delegate = self
-        //}
+        guard let viewController: AddGroupVC = segue.destination as? AddGroupVC else {return}
+        viewController.delegate = self
     }
     
     
