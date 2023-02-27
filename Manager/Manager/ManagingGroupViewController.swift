@@ -16,6 +16,8 @@ class ManagingGroupViewController: UITableViewController, DatabaseDelegate, save
         
         groupDatabase = databaseBroker.loadGroupDatabase()
         
+        setEditing(true, animated: true)
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,15 +35,18 @@ class ManagingGroupViewController: UITableViewController, DatabaseDelegate, save
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            groupDatabase.remove(at: indexPath.row)
+            databaseBroker.saveGroupDatabase(groupDatabase: groupDatabase)
+        }
+    }
     
     func onChange(groupDatabaseStr: String) {
         groupDatabase = databaseBroker.loadGroupDatabase()
         tableView.reloadData()
     }
-    
-    
-    @IBAction func clickPlusBtn(_ sender: Any) {
-    }
+
     
     func dataSend(data: String){
         print(data)

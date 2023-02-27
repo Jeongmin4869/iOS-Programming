@@ -25,6 +25,7 @@
 		A19C81DB29928084003E1D88 /* AddGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81DA29928084003E1D88 /* AddGroupVC.swift */; };
 		A19C81DD299FC101003E1D88 /* ManagingUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81DC299FC101003E1D88 /* ManagingUserViewController.swift */; };
 		A19C81DF299FC147003E1D88 /* ManagingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81DE299FC147003E1D88 /* ManagingSettingsViewController.swift */; };
+		A19C81E329AB965D003E1D88 /* AddUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C81E229AB965D003E1D88 /* AddUserVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A19C81DA29928084003E1D88 /* AddGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupVC.swift; sourceTree = "<group>"; };
 		A19C81DC299FC101003E1D88 /* ManagingUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagingUserViewController.swift; sourceTree = "<group>"; };
 		A19C81DE299FC147003E1D88 /* ManagingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagingSettingsViewController.swift; sourceTree = "<group>"; };
+		A19C81E229AB965D003E1D88 /* AddUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				A19C81DA29928084003E1D88 /* AddGroupVC.swift */,
 				A19C81DC299FC101003E1D88 /* ManagingUserViewController.swift */,
 				A19C81DE299FC147003E1D88 /* ManagingSettingsViewController.swift */,
+				A19C81E229AB965D003E1D88 /* AddUserVC.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				A19C81DB29928084003E1D88 /* AddGroupVC.swift in Sources */,
 				A19C81D8298D3A85003E1D88 /* Setting.swift in Sources */,
 				A19C81D5298D3A85003E1D88 /* Message.swift in Sources */,
+				A19C81E329AB965D003E1D88 /* AddUserVC.swift in Sources */,
 				A19C81A6298BECCE003E1D88 /* TabBarViewController.swift in Sources */,
 				A19C8192298A9FCB003E1D88 /* SceneDelegate.swift in Sources */,
 				A19C81D7298D3A85003E1D88 /* FilebaseBroker.swift in Sources */,

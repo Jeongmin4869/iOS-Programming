@@ -1,5 +1,5 @@
 import UIKit
 
-class ManagingUserViewController: UIViewController{
+class ManagingUserViewController: UITableViewController{
     
 }
