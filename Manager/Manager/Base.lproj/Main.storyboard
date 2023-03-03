@@ -159,7 +159,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
-                                            <action selector="clickCalcelBtn:" destination="3gK-L8-Ds5" eventType="touchUpInside" id="Bs8-IX-uzF"/>
+                                            <action selector="clickCalcelBtn:" destination="3gK-L8-Ds5" eventType="touchDown" id="Akp-Ia-AUB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-W7-uVF">
@@ -179,7 +179,7 @@
                     </view>
                     <connections>
                         <outlet property="addBtn" destination="XbY-W7-uVF" id="pwO-wc-a69"/>
-                        <outlet property="calcelBtn" destination="Kxv-f4-Laq" id="84W-oa-hnN"/>
+                        <outlet property="cancelBtn" destination="Kxv-f4-Laq" id="dc4-Jb-VdS"/>
                         <outlet property="groupLabel" destination="36v-eu-hYr" id="co0-dT-KTF"/>
                         <outlet property="groupPicker" destination="Wlk-sx-jjn" id="n4R-KX-wUE"/>
                         <outlet property="idLabel" destination="HgL-Tg-nMQ" id="Fkb-KJ-UAr"/>
